@@ -349,5 +349,10 @@
     </p>
 
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+    });
+  </script>
 </body>
 </html>
