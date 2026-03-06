@@ -39,6 +39,10 @@
       overflow: hidden;
     }
 
+    /* Screen 1: 34px top margin */
+    .page-wrapper:first-child {
+      margin-top: 34px;
+    }
 
     /* ─── Section 1: Hero ────────────────────────── */
     .page-1 {
@@ -49,13 +53,13 @@
       overflow: hidden;
     }
 
-    /* Rotated "after hours" — translateX(-50%) baked in */
+    /* Rotated "after hours" — translateX(-50%) baked in: 231.5 - 203.5 = 28px */
     .s1-title-wrap {
       position: absolute;
       width: 407px;
       height: 918px;
-      left: calc(10% - 123.2px);
-      top: calc(50% - 459px);
+      left: 28px;
+      top: 21px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -93,10 +97,10 @@
       display: block;
     }
 
-    /* Photo / Video / Ai text image */
+    /* Photo / Video / Ai — right-anchored */
     .s1-img-services {
       position: absolute;
-      left: calc(80% + 42.4px);
+      right: 42px;
       top: 34px;
       width: 218px;
       height: 525px;
@@ -110,10 +114,10 @@
       display: block;
     }
 
-    /* Arrow icon — translateX(-50%) baked in */
+    /* Arrow — right-anchored */
     .s1-arrow {
       position: absolute;
-      left: calc(80% - 37.6px);
+      right: 286px;
       top: 374px;
       width: 54px;
       height: 252px;
@@ -144,20 +148,20 @@
       width: 406px;
     }
 
+    /* categories: right: 573px on right edge + translateX(100%) = left edge at calc(100% - 573px) */
     .s1-text-categories {
-      left: calc(60% + 31.8px);
+      left: calc(100% - 573px);
       white-space: nowrap;
     }
 
     /* ─── Section 2: Concept + Photo ─────────────── */
 
-.page-2 {
+    .page-2 {
       position: relative;
       width: 100%;
       height: 960px;
       background: #fff;
       overflow: hidden;
-      transform-origin: top left;
     }
 
     /* Nav tag shared style */
@@ -180,10 +184,10 @@
       white-space: nowrap;
     }
 
-    /* Tags group (right side) */
+    /* Tags group — right-anchored */
     .s2-tags-group {
       position: absolute;
-      left: calc(80% + 5.4px);
+      right: 42px;
       top: 44px;
       display: flex;
       align-items: center;
@@ -201,11 +205,11 @@
       display: block;
     }
 
-    /* Photo (teeth) — bleeds right & bottom, page clips it */
+    /* Photo — sticks to bottom-right corner */
     .s2-photo {
       position: absolute;
-      left: calc(40% + 151.2px);
-      top: 396px;
+      bottom: 0;
+      right: 0;
       width: 756px;
       height: 564px;
       z-index: 1;
