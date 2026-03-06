@@ -27,7 +27,15 @@
 
     html, body {
       background: #fff;
-      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .page-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
     }
 
     .page {
@@ -262,6 +270,7 @@
   </style>
 </head>
 <body>
+  <div class="page-wrapper" data-design-width="1620" data-design-height="1000">
   <div class="page">
 
     <!-- Large rotated "after hours" text -->
@@ -302,8 +311,10 @@
     <p class="text-categories">fashion &gt; beauty &gt; lifestyle &gt; culture &gt; artists &gt; tech</p>
 
   </div>
+  </div>
 
   <!-- ─── Section 2: Concept-driven & curated AI production ─── -->
+  <div class="page-wrapper" data-design-width="1920" data-design-height="1000">
   <div class="page-2">
 
     <!-- Nav: left pill -->
@@ -349,10 +360,27 @@
     </p>
 
   </div>
+  </div>
+
   <script>
+    function scalePages() {
+      document.querySelectorAll('.page-wrapper').forEach(wrapper => {
+        const designWidth  = parseFloat(wrapper.dataset.designWidth);
+        const designHeight = parseFloat(wrapper.dataset.designHeight);
+        const scale = window.innerWidth / designWidth;
+        const inner = wrapper.firstElementChild;
+        inner.style.transform = `scale(${scale})`;
+        inner.style.transformOrigin = 'top left';
+        wrapper.style.height = (designHeight * scale) + 'px';
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      scalePages();
       document.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
     });
+
+    window.addEventListener('resize', scalePages);
   </script>
 </body>
 </html>
