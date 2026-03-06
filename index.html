@@ -157,110 +157,109 @@
       white-space: nowrap;
     }
 
-    /* ─── Section 2: Concept + Video ─────────────── */
+    /* ─── Section 2: Concept + Photo ─────────────── */
+
+    /* Section 2 outer margins (42px left & right) */
+    .page-wrapper:nth-child(2) {
+      margin: 0 42px;
+      width: calc(100% - 84px);
+    }
+
     .page-2 {
       position: relative;
-      width: 1920px;
-      height: 1000px;
+      width: 1024px;
+      height: 960px;
       background: #fff;
       overflow: hidden;
       transform-origin: top left;
     }
 
-    /* Nav pills */
-    .nav-pill {
+    /* Nav tag shared style */
+    .s2-tag {
       position: absolute;
-      background: rgba(217, 217, 217, 0.2);
-      border-radius: 200px;
-      height: 50.205px;
-      top: 35.86px;
-    }
-
-    .nav-text {
-      position: absolute;
-      font-family: 'Macan Mono', monospace;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 22px;
-      line-height: normal;
-      color: #000;
-      white-space: nowrap;
-      top: 47.97px;
-    }
-
-    /* AHW rotated logo */
-    .ahw-sign-wrapper {
-      position: absolute;
-      left: 1107.17px;
-      top: 34.17px;
-      width: 57.758px;
-      height: 53.596px;
+      top: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: rgba(217, 217, 217, 0.2);
+      border-radius: 156px;
+      padding: 8px 14px;
+      font-family: 'Macan Mono', monospace;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 9px;
+      color: #000;
+      white-space: nowrap;
     }
 
-    .ahw-sign-inner {
-      transform: rotate(-90deg);
+    /* Tags group (right side) */
+    .s2-tags-group {
+      position: absolute;
+      left: calc(80% + 5.4px);
+      top: 44px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .s2-tags-group .s2-tag {
+      position: static;
+    }
+
+    .s2-ahw-logo {
+      width: 29px;
+      height: 27px;
       flex-shrink: 0;
-      width: 53.596px;
-      height: 57.758px;
-      overflow: hidden;
-    }
-
-    .ahw-sign-inner img {
       display: block;
-      width: 54.718px;
-      height: 58.996px;
     }
 
     /* Concept-driven title image */
     .s2-img-concept {
       position: absolute;
-      left: 326.64px;
-      top: 34.71px;
-      width: 748.27px;
-      height: 573.369px;
+      left: 265px;
+      top: 44px;
+      width: 748px;
+      height: 573px;
       overflow: hidden;
     }
 
     .s2-img-concept img {
       position: absolute;
-      top: -7.85%;
+      top: -7.86%;
       left: -6.02%;
       width: 112.04%;
-      height: 115.7%;
+      height: 115.72%;
       display: block;
     }
 
-    /* Video */
-    .s2-video {
+    /* Photo (teeth) */
+    .s2-photo {
       position: absolute;
-      left: 926.99px;
-      top: 338.64px;
-      width: 993.006px;
-      height: 741.361px;
-      background: #000;
+      left: calc(40% + 151.2px);
+      top: 396px;
+      width: 756px;
+      height: 564px;
       overflow: hidden;
     }
 
-    .s2-video video {
+    .s2-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      pointer-events: none;
     }
 
     /* Body text */
     .s2-text-body {
       position: absolute;
-      left: 66.98px;
-      top: 736.73px;
-      width: 805.164px;
+      left: 42px;
+      top: 722px;
+      width: 646px;
       font-family: 'Macan Mono', monospace;
       font-style: normal;
       font-weight: 400;
-      font-size: 30px;
+      font-size: 17px;
       line-height: normal;
       color: #000;
     }
@@ -312,33 +311,24 @@
     </div>
   </div>
 
-  <!-- ─── Section 2: Concept + Video ──────────────── -->
-  <div class="page-wrapper" data-design-width="1920" data-design-height="1000">
+  <!-- ─── Section 2: Concept + Photo ──────────────── -->
+  <div class="page-wrapper" data-design-width="1024" data-design-height="960">
     <div class="page-2">
 
-      <!-- Nav: left pill -->
-      <div class="nav-pill" style="left:44.44px; width:526.571px;"></div>
-      <span class="nav-text" style="left:66.98px;">AfterHours content production studio</span>
+      <!-- Nav: left tag -->
+      <div class="s2-tag" style="left:42px;">AfterHours content production studio</div>
 
-      <!-- Nav: AHW logo -->
-      <div class="ahw-sign-wrapper">
-        <div class="ahw-sign-inner">
-          <img
-            src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-ahw-sign.svg"
-            alt="AHW"
-          />
-        </div>
+      <!-- Nav: right tags group (AHW logo + smiley + disclaimer) -->
+      <div class="s2-tags-group">
+        <img class="s2-ahw-logo"
+          src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-ahw-logo.svg"
+          alt="AHW"
+        />
+        <div class="s2-tag">:—)</div>
+        <div class="s2-tag">all images here are generated</div>
       </div>
 
-      <!-- Nav: smiley pill -->
-      <div class="nav-pill" style="left:1177.72px; width:62.919px;"></div>
-      <span class="nav-text" style="left:1189.18px;">:—)</span>
-
-      <!-- Nav: right pill -->
-      <div class="nav-pill" style="left:1240.64px; width:638.331px;"></div>
-      <span class="nav-text" style="left:1263.17px;">all images in this presentation are generated</span>
-
-      <!-- Concept-driven title image -->
+      <!-- Concept-driven & curated AI production title -->
       <div class="s2-img-concept">
         <img
           src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-concept-title.svg"
@@ -346,16 +336,17 @@
         />
       </div>
 
-      <!-- Video -->
-      <div class="s2-video">
-        <video autoplay muted loop playsinline>
-          <source src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/video.mp4" type="video/mp4" />
-        </video>
+      <!-- Photo -->
+      <div class="s2-photo">
+        <img
+          src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-photo.jpg"
+          alt=""
+        />
       </div>
 
       <!-- Body text -->
       <p class="s2-text-body">
-        We work at the intersection of art direction and generative technology — using innovative tools to shape ideas, build visual systems, and create campaigns for brands.
+        We work at the intersection of art direction and generative technology — using innovative tools to shape ideas, build visual systems, and create campaigns for brands
       </p>
 
     </div>
@@ -376,9 +367,6 @@
 
     scalePages();
     window.addEventListener('resize', scalePages);
-
-    // Force video play (browsers block autoplay without user gesture)
-    document.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
   </script>
 </body>
 </html>
