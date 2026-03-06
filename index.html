@@ -167,7 +167,7 @@
 
     .page-2 {
       position: relative;
-      width: 1024px;
+      width: 1366px;
       height: 960px;
       background: #fff;
       overflow: hidden;
@@ -213,14 +213,33 @@
       display: block;
     }
 
-    /* Concept-driven title image */
+    /* Photo (teeth) — bleeds right & bottom, page clips it */
+    .s2-photo {
+      position: absolute;
+      left: calc(40% + 151.2px);
+      top: 396px;
+      width: 756px;
+      height: 564px;
+      z-index: 1;
+    }
+
+    .s2-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Concept-driven title — on top of photo */
     .s2-img-concept {
       position: absolute;
       left: 265px;
       top: 44px;
       width: 748px;
       height: 573px;
-      overflow: hidden;
+      overflow: visible;
+      z-index: 2;
     }
 
     .s2-img-concept img {
@@ -230,24 +249,6 @@
       width: 112.04%;
       height: 115.72%;
       display: block;
-    }
-
-    /* Photo (teeth) */
-    .s2-photo {
-      position: absolute;
-      left: calc(40% + 151.2px);
-      top: 396px;
-      width: 756px;
-      height: 564px;
-      overflow: hidden;
-    }
-
-    .s2-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      pointer-events: none;
     }
 
     /* Body text */
@@ -312,7 +313,7 @@
   </div>
 
   <!-- ─── Section 2: Concept + Photo ──────────────── -->
-  <div class="page-wrapper" data-design-width="1024" data-design-height="960">
+  <div class="page-wrapper" data-design-width="1366" data-design-height="960">
     <div class="page-2">
 
       <!-- Nav: left tag -->
@@ -328,19 +329,19 @@
         <div class="s2-tag">all images here are generated</div>
       </div>
 
-      <!-- Concept-driven & curated AI production title -->
-      <div class="s2-img-concept">
-        <img
-          src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-concept-title.svg"
-          alt="Concept-driven & curated AI production"
-        />
-      </div>
-
-      <!-- Photo -->
+      <!-- Photo rendered first (behind title) -->
       <div class="s2-photo">
         <img
           src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-photo.jpg"
           alt=""
+        />
+      </div>
+
+      <!-- Concept-driven title on top of photo -->
+      <div class="s2-img-concept">
+        <img
+          src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-concept-title.svg"
+          alt="Concept-driven & curated AI production"
         />
       </div>
 
