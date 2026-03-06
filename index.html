@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>After Hours — Pitch</title>
+  <style>
+    @font-face {
+      font-family: 'Macan Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('https://raw.githubusercontent.com/ipollynka-maker/AHW/main/MacanMono-Book.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'AS Therma';
+      font-style: normal;
+      font-weight: 700;
+      src: url('https://raw.githubusercontent.com/ipollynka-maker/AHW/main/ASTherma-BoldCondensed.otf') format('opentype');
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    .page {
+      position: relative;
+      width: 1620px;
+      height: 1000px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    /* Rotated "AFTER HOURS" title */
+    .after-hours-wrapper {
+      position: absolute;
+      width: 476px;
+      height: 1074px;
+      left: calc(50% - 629px - 238px); /* translateX(-50%) baked in */
+      top: calc(50% - 537px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .after-hours-text {
+      transform: rotate(-90deg);
+      flex-shrink: 0;
+      font-family: 'AS Therma', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 396.408px;
+      line-height: normal;
+      letter-spacing: -23.7845px;
+      color: #000;
+      text-align: center;
+      white-space: nowrap;
+      font-feature-settings: 'cv01' 1, 'cv02' 1, 'salt' 1, 'ss01' 1, 'ss02' 1, 'ss03' 1, 'ss04' 1, 'dlig' 1;
+    }
+
+    /* Center logo image */
+    .img-studio {
+      position: absolute;
+      left: 529.16px;
+      top: 22.01px;
+      width: 439.363px;
+      height: 608.18px;
+      display: block;
+    }
+
+    .img-studio img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Right: Photo Video Ai */
+    .img-photo-video {
+      position: absolute;
+      left: 1393.01px;
+      top: 22.01px;
+      width: 218.346px;
+      height: 525.61px;
+      display: block;
+    }
+
+    .img-photo-video img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Arrow */
+    .img-arrow {
+      position: absolute;
+      left: calc(50% + 380.11px);
+      top: 362.02px;
+      width: 54.425px;
+      height: 252.426px;
+    }
+
+    .img-arrow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Bottom text left */
+    .text-description {
+      position: absolute;
+      left: 529.16px;
+      top: 843.09px;
+      width: 541.656px;
+      font-family: 'Macan Mono', monospace;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: normal;
+      color: #000;
+    }
+
+    /* ─── Section 2 ─────────────────────────────── */
+
+    .page-2 {
+      position: relative;
+      width: 1920px;
+      height: 1000px;
+      background: #fff;
+      overflow: hidden;
+      margin-top: 0;
+    }
+
+    /* Nav pills */
+    .nav-pill {
+      position: absolute;
+      background: rgba(217, 217, 217, 0.2);
+      border-radius: 200px;
+      height: 50.205px;
+      top: 35.86px;
+    }
+
+    .nav-text {
+      position: absolute;
+      font-family: 'Macan Mono', monospace;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: normal;
+      color: #000;
+      white-space: nowrap;
+      top: 47.97px;
+    }
+
+    /* AHW sign (rotated logo) */
+    .ahw-sign-wrapper {
+      position: absolute;
+      left: 1107.17px;
+      top: 34.17px;
+      width: 57.758px;
+      height: 53.596px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ahw-sign-inner {
+      transform: rotate(-90deg);
+      flex-shrink: 0;
+      width: 53.596px;
+      height: 57.758px;
+      overflow: hidden;
+    }
+
+    .ahw-sign-inner img {
+      display: block;
+      width: 54.718px;
+      height: 58.996px;
+    }
+
+    /* Concept-driven title image */
+    .img-concept {
+      position: absolute;
+      left: 326.64px;
+      top: 34.71px;
+      width: 748.27px;
+      height: 573.369px;
+    }
+
+    .img-concept img {
+      position: absolute;
+      /* inset accounts for the -7.85% / -6.02% inset in Figma */
+      top: -7.85%;
+      left: -6.02%;
+      width: 112.04%;
+      height: 115.7%;
+      display: block;
+    }
+
+    /* Video slot */
+    .video-slot {
+      position: absolute;
+      left: 926.99px;
+      top: 338.64px;
+      width: 993.006px;
+      height: 741.361px;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .video-slot video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Body text */
+    .text-body-2 {
+      position: absolute;
+      left: 66.98px;
+      top: 736.73px;
+      width: 805.164px;
+      font-family: 'Macan Mono', monospace;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: normal;
+      color: #000;
+    }
+
+    /* ─── Bottom text right ──────────────────────── */
+
+    /* Bottom text right */
+    .text-categories {
+      position: absolute;
+      left: 1169.12px;
+      top: 843.09px;
+      width: 469.35px;
+      font-family: 'Macan Mono', monospace;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: normal;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Large rotated "after hours" text -->
+    <div class="after-hours-wrapper">
+      <span class="after-hours-text">after hours</span>
+    </div>
+
+    <!-- Center: After Hours content production studio logo/image -->
+    <div class="img-studio">
+      <img
+        src="https://www.figma.com/api/mcp/asset/9ff261c6-7a1d-4b70-8273-f707665c5eb8"
+        alt="After Hours content production studio"
+      />
+    </div>
+
+    <!-- Right: Photo Video Ai -->
+    <div class="img-photo-video">
+      <img
+        src="https://www.figma.com/api/mcp/asset/0a5d9c8d-c744-4a57-b11b-90536a49a0dc"
+        alt="Photo Video Ai"
+      />
+    </div>
+
+    <!-- Arrow -->
+    <div class="img-arrow">
+      <img
+        src="https://www.figma.com/api/mcp/asset/f0041975-8f5e-4d06-8a5f-b3736511080e"
+        alt="→"
+      />
+    </div>
+
+    <!-- Bottom left description -->
+    <p class="text-description">
+      An independent content production studio with a multidisciplinary approach
+    </p>
+
+    <!-- Bottom right categories -->
+    <p class="text-categories">fashion &gt; beauty &gt; lifestyle &gt; culture &gt; artists &gt; tech</p>
+
+  </div>
+
+  <!-- ─── Section 2: Concept-driven & curated AI production ─── -->
+  <div class="page-2">
+
+    <!-- Nav: left pill -->
+    <div class="nav-pill" style="left: 44.44px; width: 526.571px;"></div>
+    <span class="nav-text" style="left: 66.98px;">AfterHours content production studio</span>
+
+    <!-- Nav: AHW rotated logo -->
+    <div class="ahw-sign-wrapper">
+      <div class="ahw-sign-inner">
+        <img
+          src="https://www.figma.com/api/mcp/asset/a3fbb41a-55a9-40f1-b6c2-a6837ea099f2"
+          alt="AHW"
+        />
+      </div>
+    </div>
+
+    <!-- Nav: smiley pill -->
+    <div class="nav-pill" style="left: 1177.72px; width: 62.919px;"></div>
+    <span class="nav-text" style="left: 1189.18px;">:—)</span>
+
+    <!-- Nav: right pill -->
+    <div class="nav-pill" style="left: 1240.64px; width: 638.331px;"></div>
+    <span class="nav-text" style="left: 1263.17px;">all images in this presentation are generated</span>
+
+    <!-- Title image: Concept-driven & curated AI production -->
+    <div class="img-concept">
+      <img
+        src="https://www.figma.com/api/mcp/asset/e5c6fc2e-f56a-4fb0-a732-89e0f0ed10f8"
+        alt="Concept-driven & curated AI production"
+      />
+    </div>
+
+    <!-- Video slot — replace src with your video file -->
+    <div class="video-slot">
+      <video autoplay muted loop playsinline>
+        <source src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/video.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Body text -->
+    <p class="text-body-2">
+      We work at the intersection of art direction and generative technology — using innovative tools to shape ideas, build visual systems, and create campaigns for brands.
+    </p>
+
+  </div>
+</body>
+</html>
