@@ -39,6 +39,11 @@
       overflow: hidden;
     }
 
+    /* Section 1 outer padding */
+    .page-wrapper:first-child {
+      padding: 34px 42px 21px 28px;
+    }
+
     /* ─── Section 1: Hero ────────────────────────── */
     .page-1 {
       position: relative;
@@ -360,11 +365,18 @@
       document.querySelectorAll('.page-wrapper').forEach(wrapper => {
         const designWidth  = parseFloat(wrapper.dataset.designWidth);
         const designHeight = parseFloat(wrapper.dataset.designHeight);
-        const scale = window.innerWidth / designWidth;
+        const cs = getComputedStyle(wrapper);
+        const pl = parseFloat(cs.paddingLeft);
+        const pr = parseFloat(cs.paddingRight);
+        const pt = parseFloat(cs.paddingTop);
+        const pb = parseFloat(cs.paddingBottom);
+        const scale = (window.innerWidth - pl - pr) / designWidth;
         const inner = wrapper.firstElementChild;
         inner.style.transform = `scale(${scale})`;
         inner.style.transformOrigin = 'top left';
-        wrapper.style.height = Math.round(designHeight * scale) + 'px';
+        inner.style.marginLeft = pl + 'px';
+        inner.style.marginTop  = pt + 'px';
+        wrapper.style.height = Math.round(designHeight * scale + pt + pb) + 'px';
       });
     }
 
