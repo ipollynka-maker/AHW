@@ -48,6 +48,8 @@
     .page-1 {
       position: relative;
       width: 100%;
+      max-width: 1366px;
+      margin: 0 auto;
       height: 900px;
       background: #fff;
       overflow: hidden;
@@ -95,6 +97,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
+      max-width: none;
       display: block;
     }
 
@@ -112,6 +115,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
+      max-width: none;
       display: block;
     }
 
@@ -129,6 +133,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
+      max-width: none;
       display: block;
     }
 
@@ -164,6 +169,8 @@
     .page-2 {
       position: relative;
       width: 100%;
+      max-width: 1366px;
+      margin: 0 auto;
       height: 960px;
       background: #fff;
       overflow: hidden;
@@ -239,12 +246,15 @@
       z-index: 2;
     }
 
-    .s2-img-concept img {
+    .s2-img-concept .s2-img-inset {
       position: absolute;
-      top: -7.86%;
-      left: -6.02%;
-      width: 112.04%;
-      height: 115.72%;
+      inset: -7.86% -6.02%;
+    }
+
+    .s2-img-concept .s2-img-inset img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
       display: block;
     }
 
@@ -257,6 +267,8 @@
     .page-3 {
       position: relative;
       width: 100%;
+      max-width: 1366px;
+      margin: 0 auto;
       height: 1350px;
       background: #fff;
       overflow: hidden;
@@ -305,53 +317,64 @@
       overflow: visible;
     }
 
-    .s3-word img {
+    /* Inner bleed wrapper — mirrors Figma's inset approach */
+    .s3-word-inset {
       position: absolute;
+    }
+
+    .s3-word-inset img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
       display: block;
     }
 
+    /* Concept — center at calc(10% + 30.3px), translateX(-50%) */
     .s3-word-concept {
-      left: calc(10% - 89.45px);
-      top: 151.09px;
-      width: 239.544px;
-      height: 120.905px;
+      left: calc(10% + 30.3px);
+      top: 151px;
+      width: 239px;
+      height: 121px;
+      transform: translateX(-50%);
     }
-    .s3-word-concept img {
-      top: -29.68%; left: -14.98%;
-      width: 129.96%; height: 159.36%;
+    .s3-word-concept .s3-word-inset {
+      inset: -29.66% -15.02%;
     }
 
+    /* Visual System — center at calc(30% + 127.9px) */
     .s3-word-visual-system {
-      left: calc(30% - 97.70px);
-      top: 149.48px;
-      width: 450.793px;
-      height: 124.121px;
+      left: calc(30% + 127.9px);
+      top: 149px;
+      width: 451px;
+      height: 124px;
+      transform: translateX(-50%);
     }
-    .s3-word-visual-system img {
-      top: -28.91%; left: -7.96%;
-      width: 115.92%; height: 157.82%;
+    .s3-word-visual-system .s3-word-inset {
+      inset: -28.94% -7.96%;
     }
 
+    /* Production — center at calc(70% - 10.4px) */
     .s3-word-production {
-      left: calc(70% - 181.15px);
-      top: 161.7px;
-      width: 341.778px;
-      height: 99.683px;
+      left: calc(70% - 10.4px);
+      top: 161px;
+      width: 342px;
+      height: 100px;
+      transform: translateX(-50%);
     }
-    .s3-word-production img {
-      top: -36%; left: -10.5%;
-      width: 121%; height: 172%;
+    .s3-word-production .s3-word-inset {
+      inset: -35.89% -10.49%;
     }
 
+    /* Scale — center at calc(90% + 4.7px) */
     .s3-word-scale {
-      left: calc(90% - 79.19px);
-      top: 162.66px;
-      width: 168.642px;
-      height: 97.753px;
+      left: calc(90% + 4.7px);
+      top: 162px;
+      width: 169px;
+      height: 98px;
+      transform: translateX(-50%);
     }
-    .s3-word-scale img {
-      top: -36.71%; left: -21.28%;
-      width: 142.56%; height: 173.42%;
+    .s3-word-scale .s3-word-inset {
+      inset: -36.62% -21.24%;
     }
 
     /* Description texts */
@@ -374,16 +397,21 @@
     /* Project Formats — centered, overflow for bleed inset */
     .s3-project-formats {
       position: absolute;
-      left: calc(50% - 600.76px);
-      top: 597.34px;
-      width: 1144.125px;
-      height: 456.524px;
+      left: calc(50% - 29px);
+      top: 597px;
+      width: 1144px;
+      height: 457px;
       overflow: visible;
+      transform: translateX(-50%);
     }
-    .s3-project-formats img {
+    .s3-project-formats .s3-pf-inset {
       position: absolute;
-      top: -11.17%; left: -4.46%;
-      width: 108.92%; height: 122.34%;
+      inset: -11.16% -4.46%;
+    }
+    .s3-project-formats .s3-pf-inset img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
       display: block;
     }
 
@@ -401,13 +429,14 @@
       color: #000;
     }
 
-    /* Arrow — centered, inner rotated 90° */
+    /* Arrow — centered at bottom, inner rotated 90° */
     .s3-arrow-wrap {
       position: absolute;
-      left: calc(50% - 513.26px);
-      top: 1208.87px;
-      width: 1026.513px;
-      height: 98.707px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 36px;
+      width: 1027px;
+      height: 99px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -415,8 +444,8 @@
     .s3-arrow-inner {
       transform: rotate(90deg);
       flex-shrink: 0;
-      width: 98.707px;
-      height: 1026.513px;
+      width: 99px;
+      height: 1027px;
       position: relative;
     }
     .s3-arrow-inner img {
@@ -424,6 +453,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
+      max-width: none;
       display: block;
     }
 
@@ -515,10 +545,12 @@
 
       <!-- Concept-driven title on top of photo -->
       <div class="s2-img-concept">
-        <img
-          src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-concept-title.svg"
-          alt="Concept-driven & curated AI production"
-        />
+        <div class="s2-img-inset">
+          <img
+            src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s2-concept-title.svg"
+            alt="Concept-driven & curated AI production"
+          />
+        </div>
       </div>
 
       <!-- Body text -->
@@ -541,16 +573,24 @@
 
       <!-- Word images -->
       <div class="s3-word s3-word-concept">
-        <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-concept.svg" alt="Concept" />
+        <div class="s3-word-inset">
+          <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-concept.svg" alt="Concept" />
+        </div>
       </div>
       <div class="s3-word s3-word-visual-system">
-        <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-visual-system.svg" alt="Visual System" />
+        <div class="s3-word-inset">
+          <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-visual-system.svg" alt="Visual System" />
+        </div>
       </div>
       <div class="s3-word s3-word-production">
-        <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-production.svg" alt="Production" />
+        <div class="s3-word-inset">
+          <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-production.svg" alt="Production" />
+        </div>
       </div>
       <div class="s3-word s3-word-scale">
-        <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-scale.svg" alt="Scale" />
+        <div class="s3-word-inset">
+          <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-scale.svg" alt="Scale" />
+        </div>
       </div>
 
       <!-- "how we work" / "our method" tags -->
@@ -567,7 +607,9 @@
 
       <!-- Project Formats -->
       <div class="s3-project-formats">
-        <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-project-formats.svg" alt="Project Formats" />
+        <div class="s3-pf-inset">
+          <img src="https://raw.githubusercontent.com/ipollynka-maker/AHW/main/s3-project-formats.svg" alt="Project Formats" />
+        </div>
       </div>
 
       <!-- Explore text -->
