@@ -260,6 +260,145 @@
       z-index: 3;
     }
 
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 3  —  design ref: 1366 × 1230 px
+       (height derived from layout: arrow bottom=34px, H1 centred at 50%+153.5px)
+    ══════════════════════════════════════════════════════════ */
+    .screen3 {
+      position: relative;
+      width: 100%;
+      height: 90.04vw;    /* 1230 / 1366 */
+      margin-top: 5.86vw; /* 80 / 1366 */
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* Tags left top — 2 pills */
+    .s3-tags-left {
+      position: absolute;
+      left:  3.07vw;   /* 42 / 1366 */
+      top:   2.49vw;   /* 34 / 1366 */
+      display: flex;
+      gap: 0.293vw;
+      z-index: 3;
+    }
+
+    /* Display-Group ticker (Concept / Visual System / Production / Scale) */
+    .s3-display {
+      position: absolute;
+      left:   50%;
+      top:    11.05vw;    /* 151 / 1366 */
+      transform: translateX(-50%);
+      width:  101.17vw;   /* 1382 / 1366 */
+      height:   9.08vw;   /* 124  / 1366 */
+      z-index: 1;
+    }
+    .s3-display-inner {
+      position: absolute;
+      top:    -28.94%;
+      left:    -2.6%;
+      right:   -2.6%;
+      bottom: -28.94%;
+    }
+    .s3-display-inner img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Tags centre — "how we work" + "our method" */
+    .s3-tags-centre {
+      position: absolute;
+      left:  50%;
+      top:   20.28vw;   /* 277 / 1366 */
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.293vw;
+      z-index: 3;
+    }
+
+    /* Paragraph-Group — 4 columns */
+    .s3-para-group {
+      position: absolute;
+      left:      50%;
+      top:       30.82vw;   /* 421 / 1366 */
+      transform: translateX(-50%);
+      width:     104.54vw;  /* 1428 / 1366 */
+      display:   flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 3;
+    }
+    .s3-para-col {
+      width: 314px;
+      font-family: 'Macan Mono', monospace;
+      font-size:   clamp(12px, 1.245vw, 17px);  /* 17 / 1366 */
+      line-height: normal;
+      color: #000;
+    }
+
+    /* H1-Display — "Project Formats" pink blob, centred with bleed */
+    .s3-h1 {
+      position: absolute;
+      left:   50%;
+      top:    calc(50% + 11.24vw);  /* calc(50% + 153.5/1366*100vw) */
+      transform: translateX(-50%) translateY(-50%);
+      width:  83.75vw;   /* 1144 / 1366 */
+      height: 33.46vw;   /* 457  / 1366 */
+      z-index: 2;
+    }
+    .s3-h1-inner {
+      position: absolute;
+      top:    -11.16%;
+      left:    -4.46%;
+      right:   -4.46%;
+      bottom: -11.16%;
+    }
+    .s3-h1-inner img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* "Explore the format that fits your scope" — centred below H1 */
+    /* visual top = section_height(1230) - bottom(273) + translateY(40) = 997px → /1366 */
+    .s3-explore {
+      position: absolute;
+      left:    calc(50% - 119px);   /* centres the 238px-wide element */
+      top:     73.02vw;              /* 997 / 1366 */
+      width:   238px;
+      font-family: 'Macan Mono', monospace;
+      font-size:   clamp(12px, 1.245vw, 17px);
+      line-height: normal;
+      color: #000;
+      z-index: 3;
+    }
+
+    /* Arrow — wide horizontal arrow at bottom centre */
+    .s3-arrow-outer {
+      position: absolute;
+      bottom: 2.49vw;   /* 34 / 1366 */
+      left:   50%;
+      transform: translateX(-50%);
+      width:  75.18vw;  /* 1027 / 1366 */
+      height:  7.25vw;  /* 99   / 1366 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* inner SVG is 99×1027px, rotated 90° → appears 1027×99px */
+    .s3-arrow-inner {
+      flex-shrink: 0;
+      transform: rotate(90deg);
+      width:   7.25vw;   /* 99   / 1366 */
+      height: 75.18vw;   /* 1027 / 1366 */
+    }
+    .s3-arrow-inner img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
   </style>
 </head>
 <body>
@@ -328,6 +467,55 @@
     <p class="s2-desc">
       We work at the intersection of art direction and generative technology — using innovative tools to shape ideas, build visual systems, and create campaigns for brands
     </p>
+
+  </section>
+
+  <!-- ══ SCREEN 3 ══════════════════════════════════════════ -->
+  <section class="screen3">
+
+    <!-- Tags left: "AfterHours..." + "Concept-driven..." -->
+    <div class="s3-tags-left">
+      <div class="s2-tag">AfterHours content production studio</div>
+      <div class="s2-tag">Concept-driven &amp; curated AI production</div>
+    </div>
+
+    <!-- Display-Group ticker: Concept / Visual System / Production / Scale -->
+    <div class="s3-display">
+      <div class="s3-display-inner">
+        <img src="s3-display.svg" alt="Concept – Visual System – Production – Scale" />
+      </div>
+    </div>
+
+    <!-- Tags centre: "how we work" + "our method" -->
+    <div class="s3-tags-centre">
+      <div class="s2-tag">how we work</div>
+      <div class="s2-tag">our method</div>
+    </div>
+
+    <!-- Paragraph-Group: 4 columns -->
+    <div class="s3-para-group">
+      <p class="s3-para-col">Define the idea, strategy, narrative, and visual hypothesis</p>
+      <p class="s3-para-col">Build the visual DNA: light, texture, material, form, composition, angle</p>
+      <p class="s3-para-col">Run controlled generation. Test tools and identify stable combinations</p>
+      <p class="s3-para-col">Build an asset library ready to scale. Create an autonomous visual system</p>
+    </div>
+
+    <!-- H1-Display: "Project Formats" pink blob with bleed -->
+    <div class="s3-h1">
+      <div class="s3-h1-inner">
+        <img src="s3-project-formats.svg" alt="Project Formats" />
+      </div>
+    </div>
+
+    <!-- "Explore the format that fits your scope" -->
+    <p class="s3-explore">Explore the format that fits your scope</p>
+
+    <!-- Arrow — wide horizontal, bottom centre -->
+    <div class="s3-arrow-outer">
+      <div class="s3-arrow-inner">
+        <img src="s3-arrow.svg" alt="" />
+      </div>
+    </div>
 
   </section>
 
