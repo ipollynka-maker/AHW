@@ -435,23 +435,19 @@
     .s4-text-p1 { width: 289px; }
     .s4-text-p2 { width: 434px; }
 
-    /* H1-Display — large "Visual System" blob */
+    /* H1-Display — large "Visual System" blob (user-exported SVG, no bleed wrapper)
+       SVG: 509×416px. Centre of original Figma container:
+       cx = calc(20%+49.6px)+267/2 = calc(20%+183.1px) = 14.76vw (at 1366px)
+       cy = 54+335/2 = 221.5px. top = 221.5−208 = 13.5px = 0.99vw */
     .s4-h1-main {
       position: absolute;
-      left:   calc(20% + 3.63vw);  /* calc(20% + 49.6/1366*100vw) */
-      top:    3.95vw;   /* 54  / 1366 */
-      width:  19.54vw;  /* 267 / 1366 */
-      height: 24.52vw;  /* 335 / 1366 */
+      left:   14.76vw;  /* 201.6 / 1366 */
+      top:    0.99vw;   /* 13.5  / 1366 */
+      width:  37.27vw;  /* 509   / 1366 */
+      height: 30.45vw;  /* 416   / 1366 */
       z-index: 2;
     }
-    .s4-h1-main-inner {
-      position: absolute;
-      top:    -11.99%;
-      left:   -15.04%;
-      right:  -15.04%;
-      bottom: -11.99%;
-    }
-    .s4-h1-main-inner img { width: 100%; height: 100%; display: block; }
+    .s4-h1-main img { width: 100%; height: 100%; display: block; }
 
     /* H1-Display — small "AI" blob (left) */
     .s4-h1-ai {
@@ -664,11 +660,9 @@
       <p class="s4-text-p2">We deep down in your brand, research the context, and your team's tools and build ready to use visual system</p>
     </div>
 
-    <!-- "Visual System" large blob — with bleed -->
+    <!-- "Visual System" large blob -->
     <div class="s4-h1-main">
-      <div class="s4-h1-main-inner">
-        <img src="s4-visual-system.svg" alt="Visual System" />
-      </div>
+      <img src="s4-visual-system.svg" alt="Visual System" />
     </div>
 
     <!-- "AI" small blob — with bleed -->
