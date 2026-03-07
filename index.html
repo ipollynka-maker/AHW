@@ -283,22 +283,22 @@
       z-index: 3;
     }
 
-    /* Display-Group ticker (Concept / Visual System / Production / Scale)
-       SVG viewBox = 1453.78 × 195.777 — wider than canvas by design (blobs bleed edges).
-       Fix: fill viewport edge-to-edge; scale height proportionally so all 4 blobs show.
-       SVG aspect: 195.777/1453.78 × 100 = 13.47vw tall at full width.
-       Centre stays at ~213px from section top → top = 213 − h/2 = 213 − 92 = 121px = 8.86vw */
+    /* Display-Group ticker — 4 individual word SVGs in a flex row.
+       Natural widths: 311+523+414+241 = 1489. Height at which total = 1vw viewport:
+       H = 1 / (311/193 + 523/196 + 414/172 + 241/170) × 100 = 12.33vw
+       At this height, width:auto on each img fills exactly 100vw with no gaps. */
     .s3-display {
       position: absolute;
       left:   0;
       right:  0;
-      top:    8.86vw;    /* keeps vertical centre aligned with Figma */
-      height: 13.47vw;   /* 195.777 / 1453.78 × 100vw */
+      top:    11.05vw;  /* 151 / 1366 — matches Figma container top */
+      display: flex;
+      align-items: stretch;
       z-index: 1;
     }
     .s3-display img {
-      width:  100%;
-      height: 100%;
+      height: 12.33vw;
+      width:  auto;
       display: block;
     }
 
@@ -474,9 +474,12 @@
       <div class="s2-tag">Concept-driven &amp; curated AI production</div>
     </div>
 
-    <!-- Display-Group ticker: Concept / Visual System / Production / Scale -->
+    <!-- Display-Group ticker: 4 individual word SVGs, fill 100vw at height 12.33vw -->
     <div class="s3-display">
-      <img src="s3-display.svg" alt="Concept – Visual System – Production – Scale" />
+      <img src="s3-concept.svg"       alt="Concept" />
+      <img src="s3-visual-system.svg" alt="Visual System" />
+      <img src="s3-production.svg"    alt="Production" />
+      <img src="s3-scale.svg"         alt="Scale" />
     </div>
 
     <!-- Tags centre: "how we work" + "our method" -->
