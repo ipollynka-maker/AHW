@@ -135,7 +135,7 @@
 
     .hero-caption-desc {
       left:  calc(20% + 7.66vw);
-      width: 29.72vw;  /* 406 / 1366 */
+      width: 406px;
     }
 
     /* Categories: original right: 573px → left edge at (100% - 573px)
@@ -406,33 +406,24 @@
       background: #fff;
     }
 
-    /* Tags left — "Full pack" + "AI Visual System" */
+    /* Tags — top left */
     .s4-tags {
       position: absolute;
-      left:  3.07vw;   /* 42 / 1366 */
-      top:   2.49vw;   /* 34 / 1366 */
+      left:  3.07vw;    /* 42 / 1366 */
+      top:   2.49vw;    /* 34 / 1366 */
       display: flex;
-      gap: 0.293vw;
+      gap: 0.293vw;     /* 4 / 1366 */
       z-index: 3;
     }
-
-    /* Text+Price group — right-anchored flex column (node 242:80) */
-    .s4-right-group {
+    /* Text group — top right */
+    .s4-text-group {
       position: absolute;
       right:  3.07vw;   /* 42 / 1366 */
       top:    2.49vw;   /* 34 / 1366 */
       display: flex;
-      flex-direction: column;
-      gap: 20.79vw;     /* 284 / 1366 */
+      gap: 4.69vw;      /* 64 / 1366 */
       align-items: flex-start;
       z-index: 3;
-    }
-
-    /* Text row inside group */
-    .s4-text-group {
-      display: flex;
-      gap: 4.69vw;     /* 64 / 1366 */
-      align-items: flex-start;
     }
     .s4-text-group p {
       font-family: 'Macan Mono', monospace;
@@ -440,79 +431,69 @@
       line-height: normal;
       color: #000;
     }
-    .s4-text-p1 { width: 289px; }
-    .s4-text-p2 { width: 434px; }
+    .s4-text-p1 { width: 289px; flex-shrink: 0; }
+    .s4-text-p2 { width: 434px; flex-shrink: 0; }
 
-    /* H1-Display — "Visual System" blob (348×416 export)
-       Figma container centre: cx=calc(20%+183.1px), cy=221.5px
-       left = calc(20%+183.1−174) = calc(20%+0.67vw), top = 221.5−208 = 13.5px */
+    /* H1-Display blobs */
     .s4-h1-main {
       position: absolute;
-      left:   calc(20% + 0.67vw);  /* 9.1 / 1366 */
-      top:    0.99vw;               /* 13.5 / 1366 */
-      width:  25.48vw;              /* 348 / 1366 */
-      height: 30.45vw;              /* 416 / 1366 */
+      left:   calc(20% + 0.67vw);
+      top:    0.99vw;
+      width:  25.48vw;   /* 348 / 1366 */
+      height: 30.45vw;   /* 416 / 1366 */
       z-index: 2;
     }
     .s4-h1-main img { width: 100%; height: 100%; display: block; }
 
-    /* H1-Display — "AI" blob (165×216 export)
-       Figma container centre: cx=233px, cy=220.5px
-       left = 233−82.5 = 150.5px, top = 220.5−108 = 112.5px */
     .s4-h1-ai {
       position: absolute;
-      left:   11.02vw;  /* 150.5 / 1366 */
-      top:     8.24vw;  /* 112.5 / 1366 */
-      width:  12.08vw;  /* 165   / 1366 */
-      height: 15.81vw;  /* 216   / 1366 */
+      left:   11.02vw;   /* 150.5 / 1366 */
+      top:     8.24vw;   /* 112.5 / 1366 */
+      width:  12.08vw;   /* 165   / 1366 */
+      height: 15.81vw;   /* 216   / 1366 */
       z-index: 2;
     }
     .s4-h1-ai img { width: 100%; height: 100%; display: block; }
 
-    /* Bottom row: Deliverables / Timeline / Price — all at top: 27.67vw */
+    /* Bottom row: Deliverables / Timeline / Price */
+    .s4-bottom-group {
+      position: absolute;
+      left:  3.07vw;    /* 42 / 1366 */
+      top:  27.67vw;    /* 378 / 1366 */
+      display: flex;
+      gap: 7.17vw;      /* 98 / 1366 */
+      align-items: flex-start;
+      z-index: 3;
+    }
     .s4-bottom-col {
       display: flex;
       flex-direction: column;
-      gap: 2.93vw;    /* 40 / 1366 */
+      gap: 2.93vw;      /* 40 / 1366 */
       align-items: flex-start;
     }
-    /* Deliverables and Timeline remain absolutely positioned */
-    .s4-deliverables,
-    .s4-timeline {
-      position: absolute;
-      top: 27.67vw;   /* 378 / 1366 */
-      z-index: 3;
-    }
-    .s4-bottom-col p,
-    .s4-bottom-col div.s4-text {
+    .s4-deliverables { width: 25.92vw; }  /* 354 / 1366 */
+    .s4-timeline     { width:  6.74vw; }  /* 92  / 1366 */
+    .s4-price        { width: 11.20vw; }  /* 153 / 1366 */
+
+    .s4-bottom-col p {
       font-family: 'Macan Mono', monospace;
       font-size: clamp(12px, 1.245vw, 17px);
       line-height: normal;
       color: #000;
+      margin: 0;
     }
 
-    .s4-deliverables {
-      left:  3.07vw;  /* 42 / 1366 */
-      width: 354px;
-    }
-    .s4-timeline {
-      left: calc(20% + 15.34vw);  /* calc(20% + 209.6/1366*100vw) */
-      width: 92px;
-    }
-    .s4-price {
-      width: 153px;
-    }
-
-    /* Icons + text row inside Deliverables */
+    /* Deliverables body */
     .s4-deliverables-body {
       display: flex;
-      gap: 1.17vw;    /* 16 / 1366 */
+      gap: 1.17vw;      /* 16 / 1366 */
       align-items: flex-end;
     }
     .s4-icons {
       width:  19px;
       height: 233px;
       flex-shrink: 0;
+      position: relative;
     }
     .s4-icons img {
       position: absolute;
@@ -522,13 +503,108 @@
       display: block;
     }
     .s4-deliverables-text {
-      width: 319px;
+      width: 23.35vw;   /* 319 / 1366 */
       font-family: 'Macan Mono', monospace;
       font-size: clamp(12px, 1.245vw, 17px);
       line-height: normal;
       color: #000;
     }
     .s4-deliverables-text p { margin: 0; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 5  —  design ref: 1366 × 667 px
+    ══════════════════════════════════════════════════════════ */
+    .screen5 {
+      position: relative;
+      width: 100%;
+      height: 24.93vw;   /* 340 / 1366 */
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* Text block — right-anchored, vertically centered to match arrow */
+    .s5-text-block {
+      position: absolute;
+      right:     3.07vw;   /* 42 / 1366 */
+      top:       calc(50% + 0.5px);
+      transform: translateY(-50%);
+      width:     786px;
+      display:   flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .s5-link {
+      width: 297px;
+      flex-shrink: 0;
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(12px, 1.245vw, 17px);
+      line-height: normal;
+      color: #000;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+    }
+    .s5-link p { margin: 0; }
+    .s5-desc {
+      width: 434px;
+      flex-shrink: 0;
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(12px, 1.245vw, 17px);
+      line-height: normal;
+      color: #000;
+      margin: 0;
+    }
+
+    /* Arrow — left-anchored, vertically centered */
+    .s5-arrow {
+      position: absolute;
+      left:   3.07vw;    /* 42 / 1366 */
+      top:    calc(50% + 0.5px);
+      transform: translateY(-50%);
+      width:  42.90vw;   /* 586 / 1366 */
+      height:  4.61vw;   /* 63  / 1366 */
+    }
+    .s5-arrow img { width: 100%; height: 100%; display: block; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 6  —  Grid 2-col: Image + Video  (756 × 960 each)
+    ══════════════════════════════════════════════════════════ */
+    .screen6 {
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+    }
+    .s6-cell {
+      width: 50%;
+      aspect-ratio: 756 / 960;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    /* Image bleed from Figma: top -0.01%, left -1.06%, w 102.25%, h 107.84% */
+    .s6-image-wrap {
+      position: absolute;
+      top:    -0.01%;
+      left:   -1.06%;
+      width:  102.25%;
+      height: 107.84%;
+    }
+    .s6-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Video cell */
+    .s6-video-wrap {
+      position: absolute;
+      inset: 0;
+    }
+    .s6-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
   </style>
 </head>
@@ -654,26 +730,16 @@
   <!-- ══ SCREEN 4 ══════════════════════════════════════════ -->
   <section class="screen4">
 
-    <!-- Tags left -->
+    <!-- Tags — top left -->
     <div class="s4-tags">
       <div class="s2-tag">Full pack</div>
       <div class="s2-tag">AI Visual System</div>
     </div>
 
-    <!-- Text + Price group — right-anchored flex column -->
-    <div class="s4-right-group">
-      <div class="s4-text-group">
-        <p class="s4-text-p1">We build your brand's visual language through AI</p>
-        <p class="s4-text-p2">We deep down in your brand, research the context, and your team's tools and build ready to use visual system</p>
-      </div>
-      <!-- Price (inside right group, 284px below text) -->
-      <div class="s4-bottom-col s4-price">
-        <div class="s2-tag">Price</div>
-        <div>
-          <p style="font-family:'Macan Mono',monospace;font-size:clamp(12px,1.245vw,17px);line-height:normal;color:#000;margin:0;">from €8000</p>
-          <p style="font-family:'Macan Mono',monospace;font-size:clamp(12px,1.245vw,17px);line-height:normal;color:#000;margin:0;">AI generation<br>tokens includes</p>
-        </div>
-      </div>
+    <!-- Text group — top right -->
+    <div class="s4-text-group">
+      <p class="s4-text-p1">We build your brand's visual language through AI</p>
+      <p class="s4-text-p2">We deep down in your brand, research the context, and your team's tools and build ready to use visual system</p>
     </div>
 
     <!-- "Visual System" large blob -->
@@ -686,29 +752,74 @@
       <img src="s4-ai.svg" alt="AI" />
     </div>
 
-    <!-- Deliverables -->
-    <div class="s4-bottom-col s4-deliverables">
-      <div class="s2-tag">Deliverables</div>
-      <div class="s4-deliverables-body">
-        <div class="s4-icons" style="position:relative;">
-          <img src="s4-icons.svg" alt="" />
+    <!-- Bottom row: Deliverables / Timeline / Price -->
+    <div class="s4-bottom-group">
+      <div class="s4-bottom-col s4-deliverables">
+        <div class="s2-tag">Deliverables</div>
+        <div class="s4-deliverables-body">
+          <div class="s4-icons">
+            <img src="s4-icons.svg" alt="" />
+          </div>
+          <div class="s4-deliverables-text">
+            <p>Visual library — imagery, textures, brand visual language across chosen media</p>
+            <p>&nbsp;</p>
+            <p>AI-generated assets for selected media formats</p>
+            <p>&nbsp;</p>
+            <p>System and workflow guide</p>
+            <p>&nbsp;</p>
+            <p>AI pipeline: prompts, tools, step-by-step process</p>
+          </div>
         </div>
-        <div class="s4-deliverables-text">
-          <p>Visual library — imagery, textures, brand visual language across chosen media </p>
-          <p>&nbsp;</p>
-          <p>AI-generated assets for selected media formats</p>
-          <p>&nbsp;</p>
-          <p>System and workflow guide</p>
-          <p>&nbsp;</p>
-          <p>AI pipeline: prompts, tools, step-by-step process</p>
+      </div>
+      <div class="s4-bottom-col s4-timeline">
+        <div class="s2-tag">Timeline</div>
+        <p>4–6 weeks</p>
+      </div>
+      <div class="s4-bottom-col s4-price">
+        <div class="s2-tag">Price</div>
+        <div>
+          <p>from €8000</p>
+          <p>AI generation<br>tokens includes</p>
         </div>
       </div>
     </div>
 
-    <!-- Timeline -->
-    <div class="s4-bottom-col s4-timeline">
-      <div class="s2-tag">Timeline</div>
-      <p>4–6 weeks</p>
+  </section>
+
+  <!-- ══ SCREEN 5 ══════════════════════════════════════════ -->
+  <section class="screen5">
+
+    <!-- Text block — right side, two columns -->
+    <div class="s5-text-block">
+      <a class="s5-link">
+        <p>AI Visual System for Manychat</p>
+        <p>manychat.com</p>
+      </a>
+      <p class="s5-desc">Created an AI-powered visual system for Manychat, a platform that helps businesses automate conversations across messaging channels. The project focused on generating consistent editorial-style photography for blog articles, marketing campaigns, and event content through a scalable prompt framework.</p>
+    </div>
+
+    <!-- Arrow — left, vertically centered -->
+    <div class="s5-arrow">
+      <img src="s5-arrow.svg" alt="" />
+    </div>
+
+  </section>
+
+  <!-- ══ SCREEN 6 — Grid: Image + Video ═══════════════════ -->
+  <section class="screen6">
+
+    <!-- Left: Image -->
+    <div class="s6-cell">
+      <div class="s6-image-wrap">
+        <img src="s6-image.png" alt="" />
+      </div>
+    </div>
+
+    <!-- Right: Video -->
+    <div class="s6-cell">
+      <div class="s6-video-wrap">
+        <video src="s6-video.mp4" autoplay muted loop playsinline></video>
+      </div>
     </div>
 
   </section>
