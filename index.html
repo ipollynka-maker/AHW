@@ -1043,6 +1043,61 @@
       display: block;
     }
 
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 29  —  Footer: Let's talk
+    ══════════════════════════════════════════════════════════ */
+    .screen29 {
+      position: relative;
+      width: 100%;
+      height: 46.85vw;   /* 640 / 1366 */
+      overflow: hidden;
+      background: #fff;
+    }
+    .s29-h1 {
+      position: absolute;
+      left: 5.49vw;     /* 75 / 1366 */
+      top: 5.86vw;      /* 80 / 1366 */
+      width: 31.70vw;   /* 433 / 1366 */
+      height: 34.33vw;  /* 469 / 1366 */
+      overflow: hidden;
+      z-index: 2;
+    }
+    .s29-h1-inner {
+      position: absolute;
+      inset: -6.61% -7.16%;
+    }
+    .s29-h1-inner img { width: 100%; height: 100%; display: block; }
+    .s29-text {
+      position: absolute;
+      left: 51.07vw;    /* 697.6 / 1366 */
+      top: 6.22vw;      /* 85 / 1366 */
+      width: 320px;
+      font-family: 'Macan Mono', monospace;
+      font-size: 17px;
+      line-height: normal;
+      color: #000;
+    }
+    .s29-text p { margin: 0; }
+    .s29-tag-left {
+      position: absolute;
+      left: 3.07vw;     /* 42 / 1366 */
+      top: 2.49vw;      /* 34 / 1366 */
+    }
+    .s29-tags-right {
+      position: absolute;
+      right: 3.07vw;    /* 42 / 1366 */
+      top: 2.49vw;      /* 34 / 1366 */
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .s29-logo {
+      width: 29px;
+      height: 27px;
+      display: block;
+      flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -1632,6 +1687,37 @@
   <section class="screen28">
     <div class="s17-cell"><img src="s28-img1.png" alt="" /></div>
     <div class="s17-cell"><img src="s28-img2.png" alt="" /></div>
+  </section>
+
+  <!-- ══ SCREEN 29 — Footer: Let's talk ═══════════════════ -->
+  <section class="screen29">
+
+    <!-- Tag — top left -->
+    <div class="s29-tag-left">
+      <div class="s2-tag">AfterHours content production studio</div>
+    </div>
+
+    <!-- Tags — top right -->
+    <div class="s29-tags-right">
+      <img class="s29-logo" src="s2-logo.svg" alt="AHW" />
+      <div class="s2-tag s2-tag-smiley">:—)</div>
+      <div class="s2-tag">hello@afterhoursworkshop.com</div>
+    </div>
+
+    <!-- "Let's talk" SVG blob -->
+    <div class="s29-h1">
+      <div class="s29-h1-inner">
+        <img src="s29-union.svg" alt="Let's talk" />
+      </div>
+    </div>
+
+    <!-- Body text -->
+    <div class="s29-text">
+      <p>Each pack can be tailored to your project. Happy to share more about our approach and discuss details.</p>
+      <p>&nbsp;</p>
+      <p>Let's make something!</p>
+    </div>
+
   </section>
 
 </body>
