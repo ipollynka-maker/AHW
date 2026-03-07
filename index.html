@@ -620,6 +620,37 @@
     }
 
     /* ══════════════════════════════════════════════════════════
+       SCREEN 13  —  AI Campaign Production service page
+    ══════════════════════════════════════════════════════════ */
+    .screen13 {
+      position: relative;
+      width: 100%;
+      height: 51.24vw;   /* 700 / 1366 */
+      overflow: hidden;
+      background: #fff;
+    }
+    .s13-blob-main {
+      position: absolute;
+      left:   15.96vw;   /* 218 / 1366 */
+      top:     0.88vw;   /* 12  / 1366 */
+      width:  27.38vw;   /* 374 / 1366 */
+      height: 32.72vw;   /* 447 / 1366 */
+      z-index: 2;
+    }
+    .s13-blob-ai {
+      position: absolute;
+      left:    8.79vw;   /* 120 / 1366 */
+      top:     9.66vw;   /* 132 / 1366 */
+      width:   8.93vw;   /* 122 / 1366 */
+      height: 15.08vw;   /* 206 / 1366 */
+      z-index: 2;
+    }
+    .s13-blob-main img,
+    .s13-blob-ai img { width: 100%; height: 100%; display: block; }
+    /* Bottom group offset differs from S4 */
+    .s13-bottom { top: 29.36vw; }  /* 401 / 1366 */
+
+    /* ══════════════════════════════════════════════════════════
        SCREEN 12  —  Grid-5: 4 equal image cells (TBC visuals)
     ══════════════════════════════════════════════════════════ */
     .screen12 {
@@ -1103,6 +1134,63 @@
     <div class="s12-cell"><img class="s12-img2" src="s12-img2.png" alt="" /></div>
     <div class="s12-cell"><img class="s12-img3" src="s12-img3.png" alt="" /></div>
     <div class="s12-cell"><img class="s12-img4" src="s12-img4.png" alt="" /></div>
+  </section>
+
+  <!-- ══ SCREEN 13 — AI Campaign Production ══════════════ -->
+  <section class="screen13">
+
+    <!-- Tags — top left -->
+    <div class="s4-tags">
+      <div class="s2-tag">Full pack</div>
+      <div class="s2-tag">AI Campaign production</div>
+    </div>
+
+    <!-- Text group — top right (fixed widths) -->
+    <div class="s4-text-group">
+      <p class="s4-text-p1">Brand campaigns without a huge crew</p>
+      <p class="s4-text-p2">Concept, visual language and a full asset set – tailored for your formats and distribution channels</p>
+    </div>
+
+    <!-- "AI Campaign production" blob -->
+    <div class="s13-blob-main">
+      <img src="s13-AI-Campaign-production.svg" alt="AI Campaign production" />
+    </div>
+
+    <!-- "AI" small blob -->
+    <div class="s13-blob-ai">
+      <img src="s13-AI-2.svg" alt="AI" />
+    </div>
+
+    <!-- Bottom row -->
+    <div class="s4-bottom-group s13-bottom">
+      <div class="s4-bottom-col s4-deliverables">
+        <div class="s2-tag">Deliverables</div>
+        <div class="s4-deliverables-body">
+          <div class="s4-icons">
+            <img src="s4-icons.svg" alt="" />
+          </div>
+          <div class="s4-deliverables-text">
+            <p>Visual narrative, creative direction, mood board / direction board across chosen media</p>
+            <p>&nbsp;</p>
+            <p>A selection of assets to choose from:</p>
+            <p>&nbsp;</p>
+            <p>Static visuals — 20 images<br>Short videos — 5–10 clips<br>Long-form video — 3–5 minutes or 2 × 1:30</p>
+          </div>
+        </div>
+      </div>
+      <div class="s4-bottom-col s4-timeline">
+        <div class="s2-tag">Timeline</div>
+        <p>2–6 weeks</p>
+      </div>
+      <div class="s4-bottom-col s4-price">
+        <div class="s2-tag">Price</div>
+        <div>
+          <p>from €5000</p>
+          <p>AI generation<br>tokens includes</p>
+        </div>
+      </div>
+    </div>
+
   </section>
 
 </body>
