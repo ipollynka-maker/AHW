@@ -595,6 +595,26 @@
     .s7-img3 { top: -3.37%; left: -0.01%; width: 125.64%; height: 106.15%; }
 
     /* ══════════════════════════════════════════════════════════
+       SCREEN 9  —  AI Exploration service page (same layout as S4)
+    ══════════════════════════════════════════════════════════ */
+    .screen9 {
+      position: relative;
+      width: 100%;
+      height: 51.24vw;   /* 700 / 1366 */
+      overflow: hidden;
+      background: #fff;
+    }
+    .s9-blob {
+      position: absolute;
+      left:   13.84vw;   /* 189 / 1366 */
+      top:     0.88vw;   /* 12  / 1366 */
+      width:  39.60vw;   /* 541 / 1366 */
+      height: 30.96vw;   /* 423 / 1366 */
+      z-index: 2;
+    }
+    .s9-blob img { width: 100%; height: 100%; display: block; }
+
+    /* ══════════════════════════════════════════════════════════
        SCREEN 8  —  Grid-3: Video (754) | Img (376) | Img (376)
     ══════════════════════════════════════════════════════════ */
     .screen8 {
@@ -903,6 +923,61 @@
     <div class="s7-cell s7-cell-lg">
       <img class="s7-img3" src="s7-img3.png" alt="" />
     </div>
+  </section>
+
+  <!-- ══ SCREEN 9 — AI Exploration (Quick pack) ══════════ -->
+  <section class="screen9">
+
+    <!-- Tags — top left -->
+    <div class="s4-tags">
+      <div class="s2-tag">Quick pack</div>
+      <div class="s2-tag">AI Visual Research</div>
+      <div class="s2-tag">AI System Prototype</div>
+    </div>
+
+    <!-- Text group — top right -->
+    <div class="s4-text-group">
+      <p class="s4-text-p1">A fast test before committing to a system</p>
+      <p class="s4-text-p2">For those who want to test an idea, find a visual language, or see what's possible before making a bigger decision. We explore your hypothesis and return with a short concept and visual assets</p>
+    </div>
+
+    <!-- "AI exploration" blob -->
+    <div class="s9-blob">
+      <img src="s9-ai-exploration.svg" alt="AI exploration" />
+    </div>
+
+    <!-- Bottom row: Deliverables / Timeline / Price -->
+    <div class="s4-bottom-group">
+      <div class="s4-bottom-col s4-deliverables">
+        <div class="s2-tag">Deliverables</div>
+        <div class="s4-deliverables-body">
+          <div class="s4-icons">
+            <img src="s4-icons.svg" alt="" />
+          </div>
+          <div class="s4-deliverables-text">
+            <p>1 campaign<br>or product concept</p>
+            <p>&nbsp;</p>
+            <p>Creative direction, mood / direction board (Figma)</p>
+            <p>&nbsp;</p>
+            <p>6–10 key visuals</p>
+            <p>&nbsp;</p>
+            <p>Base AI DNA — ready to grow into a full system</p>
+          </div>
+        </div>
+      </div>
+      <div class="s4-bottom-col s4-timeline">
+        <div class="s2-tag">Timeline</div>
+        <p>48–72 hours</p>
+      </div>
+      <div class="s4-bottom-col s4-price">
+        <div class="s2-tag">Price</div>
+        <div>
+          <p>from €1500</p>
+          <p>AI generation<br>tokens includes</p>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- ══ SCREEN 8 — Grid-3: Video + 2 images ════════════ -->
