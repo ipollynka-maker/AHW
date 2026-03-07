@@ -416,15 +416,23 @@
       z-index: 3;
     }
 
-    /* Text group — right side, two paragraphs */
-    .s4-text-group {
+    /* Text+Price group — right-anchored flex column (node 242:80) */
+    .s4-right-group {
       position: absolute;
-      right: 3.07vw;   /* 42 / 1366 */
-      top:   2.49vw;   /* 34 / 1366 */
+      right:  3.07vw;   /* 42 / 1366 */
+      top:    2.49vw;   /* 34 / 1366 */
+      display: flex;
+      flex-direction: column;
+      gap: 20.79vw;     /* 284 / 1366 */
+      align-items: flex-start;
+      z-index: 3;
+    }
+
+    /* Text row inside group */
+    .s4-text-group {
       display: flex;
       gap: 4.69vw;     /* 64 / 1366 */
       align-items: flex-start;
-      z-index: 3;
     }
     .s4-text-group p {
       font-family: 'Macan Mono', monospace;
@@ -463,12 +471,16 @@
 
     /* Bottom row: Deliverables / Timeline / Price — all at top: 27.67vw */
     .s4-bottom-col {
-      position: absolute;
-      top: 27.67vw;   /* 378 / 1366 */
       display: flex;
       flex-direction: column;
       gap: 2.93vw;    /* 40 / 1366 */
       align-items: flex-start;
+    }
+    /* Deliverables and Timeline remain absolutely positioned */
+    .s4-deliverables,
+    .s4-timeline {
+      position: absolute;
+      top: 27.67vw;   /* 378 / 1366 */
       z-index: 3;
     }
     .s4-bottom-col p,
@@ -488,7 +500,6 @@
       width: 92px;
     }
     .s4-price {
-      left: calc(40% + 5.72vw);   /* calc(40% + 78.2/1366*100vw) */
       width: 153px;
     }
 
@@ -649,10 +660,20 @@
       <div class="s2-tag">AI Visual System</div>
     </div>
 
-    <!-- Text group right -->
-    <div class="s4-text-group">
-      <p class="s4-text-p1">We build your brand's visual language through AI</p>
-      <p class="s4-text-p2">We deep down in your brand, research the context, and your team's tools and build ready to use visual system</p>
+    <!-- Text + Price group — right-anchored flex column -->
+    <div class="s4-right-group">
+      <div class="s4-text-group">
+        <p class="s4-text-p1">We build your brand's visual language through AI</p>
+        <p class="s4-text-p2">We deep down in your brand, research the context, and your team's tools and build ready to use visual system</p>
+      </div>
+      <!-- Price (inside right group, 284px below text) -->
+      <div class="s4-bottom-col s4-price">
+        <div class="s2-tag">Price</div>
+        <div>
+          <p style="font-family:'Macan Mono',monospace;font-size:clamp(12px,1.245vw,17px);line-height:normal;color:#000;margin:0;">from €8000</p>
+          <p style="font-family:'Macan Mono',monospace;font-size:clamp(12px,1.245vw,17px);line-height:normal;color:#000;margin:0;">AI generation<br>tokens includes</p>
+        </div>
+      </div>
     </div>
 
     <!-- "Visual System" large blob -->
@@ -688,15 +709,6 @@
     <div class="s4-bottom-col s4-timeline">
       <div class="s2-tag">Timeline</div>
       <p>4–6 weeks</p>
-    </div>
-
-    <!-- Price -->
-    <div class="s4-bottom-col s4-price">
-      <div class="s2-tag">Price</div>
-      <div>
-        <p style="font-family:'Macan Mono',monospace;font-size:clamp(12px,1.245vw,17px);line-height:normal;color:#000;margin:0;">from €8000</p>
-        <p style="font-family:'Macan Mono',monospace;font-size:clamp(12px,1.245vw,17px);line-height:normal;color:#000;margin:0;">AI generation<br>tokens includes</p>
-      </div>
     </div>
 
   </section>
