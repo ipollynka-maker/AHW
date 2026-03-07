@@ -620,6 +620,27 @@
     }
 
     /* ══════════════════════════════════════════════════════════
+       SCREEN 18  —  AI Editorial / Drop Launch Pack service page
+    ══════════════════════════════════════════════════════════ */
+    .screen18 {
+      position: relative;
+      width: 100%;
+      height: 57.32vw;   /* 783 / 1366 */
+      overflow: hidden;
+      background: #fff;
+    }
+    .s18-blob {
+      position: absolute;
+      left: 17.42vw;    /* 238 / 1366 */
+      top: 1.17vw;      /* 16 / 1366 */
+      width: 22.91vw;   /* 313 / 1366 */
+      height: 36.38vw;  /* 497 / 1366 */
+      z-index: 2;
+    }
+    .s18-blob img { width: 100%; height: 100%; display: block; }
+    .s18-bottom   { top: 33.75vw; }  /* 461 / 1366 */
+
+    /* ══════════════════════════════════════════════════════════
        SCREEN 17  —  Grid-9: 1 image + 1 video (2 equal cells)
     ══════════════════════════════════════════════════════════ */
     .screen17 {
@@ -1324,6 +1345,55 @@
   <section class="screen17">
     <div class="s17-cell"><img src="s17-img1.png" alt="" /></div>
     <div class="s17-cell"><video src="s17-v1.mp4" autoplay muted loop playsinline></video></div>
+  </section>
+
+  <!-- ══ SCREEN 18 — AI Editorial / Drop Launch Pack ═══════ -->
+  <section class="screen18">
+
+    <div class="s4-tags">
+      <div class="s2-tag">Quick pack</div>
+      <div class="s2-tag">AI Editorial</div>
+      <div class="s2-tag">Drop Launch Pack</div>
+    </div>
+
+    <div class="s4-text-group">
+      <p class="s4-text-p1">For visual stories and object poetry</p>
+      <p class="s4-text-p2">Concept, visual language and a ready-to-publish asset pack. For those who want to tell a story that looks like a full production</p>
+    </div>
+
+    <div class="s18-blob">
+      <img src="s18-blob.svg" alt="Drop AI Launch Pack" />
+    </div>
+
+    <div class="s4-bottom-group s18-bottom">
+      <div class="s4-bottom-col s4-deliverables">
+        <div class="s2-tag">Deliverables</div>
+        <div class="s4-deliverables-body">
+          <div class="s4-icons"><img src="s4-icons.svg" alt="" /></div>
+          <div class="s4-deliverables-text">
+            <p>Visual narrative, creative direction, mood board / direction board</p>
+            <p>&nbsp;</p>
+            <p>1 hero visual + 6–12 variations</p>
+            <p>&nbsp;</p>
+            <p>2–4 short loops (5–10 sec)</p>
+            <p>&nbsp;</p>
+            <p>6–10 stories frames (vertical)</p>
+          </div>
+        </div>
+      </div>
+      <div class="s4-bottom-col s4-timeline">
+        <div class="s2-tag">Timeline</div>
+        <p>1 week</p>
+      </div>
+      <div class="s4-bottom-col s4-price">
+        <div class="s2-tag">Price</div>
+        <div>
+          <p>from €3000</p>
+          <p>AI generation<br>tokens includes</p>
+        </div>
+      </div>
+    </div>
+
   </section>
 
 </body>
