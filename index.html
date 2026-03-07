@@ -394,6 +394,140 @@
       display: block;
     }
 
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 4  —  design ref: 1366 × 700 px
+    ══════════════════════════════════════════════════════════ */
+    .screen4 {
+      position: relative;
+      width: 100%;
+      height: 51.24vw;    /* 700 / 1366 */
+      margin-top: 5.86vw;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* Tags left — "Full pack" + "AI Visual System" */
+    .s4-tags {
+      position: absolute;
+      left:  3.07vw;   /* 42 / 1366 */
+      top:   2.49vw;   /* 34 / 1366 */
+      display: flex;
+      gap: 0.293vw;
+      z-index: 3;
+    }
+
+    /* Text group — right side, two paragraphs */
+    .s4-text-group {
+      position: absolute;
+      right: 3.07vw;   /* 42 / 1366 */
+      top:   2.49vw;   /* 34 / 1366 */
+      display: flex;
+      gap: 4.69vw;     /* 64 / 1366 */
+      align-items: flex-start;
+      z-index: 3;
+    }
+    .s4-text-group p {
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(12px, 1.245vw, 17px);
+      line-height: normal;
+      color: #000;
+    }
+    .s4-text-p1 { width: 289px; }
+    .s4-text-p2 { width: 434px; }
+
+    /* H1-Display — large "Visual System" blob */
+    .s4-h1-main {
+      position: absolute;
+      left:   calc(20% + 3.63vw);  /* calc(20% + 49.6/1366*100vw) */
+      top:    3.95vw;   /* 54  / 1366 */
+      width:  19.54vw;  /* 267 / 1366 */
+      height: 24.52vw;  /* 335 / 1366 */
+      z-index: 2;
+    }
+    .s4-h1-main-inner {
+      position: absolute;
+      top:    -11.99%;
+      left:   -15.04%;
+      right:  -15.04%;
+      bottom: -11.99%;
+    }
+    .s4-h1-main-inner img { width: 100%; height: 100%; display: block; }
+
+    /* H1-Display — small "AI" blob (left) */
+    .s4-h1-ai {
+      position: absolute;
+      left:   13.98vw;  /* 191 / 1366 */
+      top:    11.2vw;   /* 153 / 1366 */
+      width:   6.15vw;  /* 84  / 1366 */
+      height:  9.88vw;  /* 135 / 1366 */
+      z-index: 2;
+    }
+    .s4-h1-ai-inner {
+      position: absolute;
+      top:    -29.75%;
+      left:   -47.81%;
+      right:  -47.81%;
+      bottom: -29.75%;
+    }
+    .s4-h1-ai-inner img { width: 100%; height: 100%; display: block; }
+
+    /* Bottom row: Deliverables / Timeline / Price — all at top: 27.67vw */
+    .s4-bottom-col {
+      position: absolute;
+      top: 27.67vw;   /* 378 / 1366 */
+      display: flex;
+      flex-direction: column;
+      gap: 2.93vw;    /* 40 / 1366 */
+      align-items: flex-start;
+    }
+    .s4-bottom-col p,
+    .s4-bottom-col div.s4-text {
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(12px, 1.245vw, 17px);
+      line-height: normal;
+      color: #000;
+    }
+
+    .s4-deliverables {
+      left:  3.07vw;  /* 42 / 1366 */
+      width: 354px;
+    }
+    .s4-timeline {
+      left: calc(20% + 15.34vw);  /* calc(20% + 209.6/1366*100vw) */
+      width: 92px;
+    }
+    .s4-price {
+      left: calc(40% + 5.72vw);   /* calc(40% + 78.2/1366*100vw) */
+      width: 153px;
+    }
+
+    /* Icons + text row inside Deliverables */
+    .s4-deliverables-body {
+      display: flex;
+      gap: 1.17vw;    /* 16 / 1366 */
+      align-items: flex-end;
+    }
+    .s4-icons {
+      width:  19px;
+      height: 233px;
+      flex-shrink: 0;
+    }
+    .s4-icons img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .s4-deliverables-text {
+      width: 319px;
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(12px, 1.245vw, 17px);
+      line-height: normal;
+      color: #000;
+    }
+    .s4-deliverables-text p { margin: 0; }
+
   </style>
 </head>
 <body>
@@ -510,6 +644,71 @@
     <div class="s3-arrow-outer">
       <div class="s3-arrow-inner">
         <img src="s3-arrow.svg" alt="" />
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ SCREEN 4 ══════════════════════════════════════════ -->
+  <section class="screen4">
+
+    <!-- Tags left -->
+    <div class="s4-tags">
+      <div class="s2-tag">Full pack</div>
+      <div class="s2-tag">AI Visual System</div>
+    </div>
+
+    <!-- Text group right -->
+    <div class="s4-text-group">
+      <p class="s4-text-p1">We build your brand's visual language through AI</p>
+      <p class="s4-text-p2">We deep down in your brand, research the context, and your team's tools and build ready to use visual system</p>
+    </div>
+
+    <!-- "Visual System" large blob — with bleed -->
+    <div class="s4-h1-main">
+      <div class="s4-h1-main-inner">
+        <img src="s4-visual-system.svg" alt="Visual System" />
+      </div>
+    </div>
+
+    <!-- "AI" small blob — with bleed -->
+    <div class="s4-h1-ai">
+      <div class="s4-h1-ai-inner">
+        <img src="s4-ai.svg" alt="AI" />
+      </div>
+    </div>
+
+    <!-- Deliverables -->
+    <div class="s4-bottom-col s4-deliverables">
+      <div class="s2-tag">Deliverables</div>
+      <div class="s4-deliverables-body">
+        <div class="s4-icons" style="position:relative;">
+          <img src="s4-icons.svg" alt="" />
+        </div>
+        <div class="s4-deliverables-text">
+          <p>Visual library — imagery, textures, brand visual language across chosen media </p>
+          <p>&nbsp;</p>
+          <p>AI-generated assets for selected media formats</p>
+          <p>&nbsp;</p>
+          <p>System and workflow guide</p>
+          <p>&nbsp;</p>
+          <p>AI pipeline: prompts, tools, step-by-step process</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="s4-bottom-col s4-timeline">
+      <div class="s2-tag">Timeline</div>
+      <p>4–6 weeks</p>
+    </div>
+
+    <!-- Price -->
+    <div class="s4-bottom-col s4-price">
+      <div class="s2-tag">Price</div>
+      <div>
+        <p style="font-family:'Macan Mono',monospace;font-size:clamp(12px,1.245vw,17px);line-height:normal;color:#000;margin:0;">from €8000</p>
+        <p style="font-family:'Macan Mono',monospace;font-size:clamp(12px,1.245vw,17px);line-height:normal;color:#000;margin:0;">AI generation<br>tokens includes</p>
       </div>
     </div>
 
