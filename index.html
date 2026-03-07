@@ -435,37 +435,31 @@
     .s4-text-p1 { width: 289px; }
     .s4-text-p2 { width: 434px; }
 
-    /* H1-Display — large "Visual System" blob (user-exported SVG, no bleed wrapper)
-       SVG: 509×416px. Centre of original Figma container:
-       cx = calc(20%+49.6px)+267/2 = calc(20%+183.1px) = 14.76vw (at 1366px)
-       cy = 54+335/2 = 221.5px. top = 221.5−208 = 13.5px = 0.99vw */
+    /* H1-Display — "Visual System" blob (348×416 export)
+       Figma container centre: cx=calc(20%+183.1px), cy=221.5px
+       left = calc(20%+183.1−174) = calc(20%+0.67vw), top = 221.5−208 = 13.5px */
     .s4-h1-main {
       position: absolute;
-      left:   14.76vw;  /* 201.6 / 1366 */
-      top:    0.99vw;   /* 13.5  / 1366 */
-      width:  37.27vw;  /* 509   / 1366 */
-      height: 30.45vw;  /* 416   / 1366 */
+      left:   calc(20% + 0.67vw);  /* 9.1 / 1366 */
+      top:    0.99vw;               /* 13.5 / 1366 */
+      width:  25.48vw;              /* 348 / 1366 */
+      height: 30.45vw;              /* 416 / 1366 */
       z-index: 2;
     }
     .s4-h1-main img { width: 100%; height: 100%; display: block; }
 
-    /* H1-Display — small "AI" blob (left) */
+    /* H1-Display — "AI" blob (165×216 export)
+       Figma container centre: cx=233px, cy=220.5px
+       left = 233−82.5 = 150.5px, top = 220.5−108 = 112.5px */
     .s4-h1-ai {
       position: absolute;
-      left:   13.98vw;  /* 191 / 1366 */
-      top:    11.2vw;   /* 153 / 1366 */
-      width:   6.15vw;  /* 84  / 1366 */
-      height:  9.88vw;  /* 135 / 1366 */
+      left:   11.02vw;  /* 150.5 / 1366 */
+      top:     8.24vw;  /* 112.5 / 1366 */
+      width:  12.08vw;  /* 165   / 1366 */
+      height: 15.81vw;  /* 216   / 1366 */
       z-index: 2;
     }
-    .s4-h1-ai-inner {
-      position: absolute;
-      top:    -29.75%;
-      left:   -47.81%;
-      right:  -47.81%;
-      bottom: -29.75%;
-    }
-    .s4-h1-ai-inner img { width: 100%; height: 100%; display: block; }
+    .s4-h1-ai img { width: 100%; height: 100%; display: block; }
 
     /* Bottom row: Deliverables / Timeline / Price — all at top: 27.67vw */
     .s4-bottom-col {
@@ -665,11 +659,9 @@
       <img src="s4-visual-system.svg" alt="Visual System" />
     </div>
 
-    <!-- "AI" small blob — with bleed -->
+    <!-- "AI" blob -->
     <div class="s4-h1-ai">
-      <div class="s4-h1-ai-inner">
-        <img src="s4-ai.svg" alt="AI" />
-      </div>
+      <img src="s4-ai.svg" alt="AI" />
     </div>
 
     <!-- Deliverables -->
