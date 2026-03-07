@@ -145,6 +145,121 @@
       white-space: nowrap;
     }
 
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 2  —  design ref: 1366 × 960 px
+    ══════════════════════════════════════════════════════════ */
+    .screen2 {
+      position: relative;
+      width: 100%;
+      height: 70.28vw;    /* 960 / 1366 */
+      margin-top: 5.86vw; /* 80 / 1366 — gap between screens */
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* Photo — bottom-right anchored, behind everything */
+    .s2-photo {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width:  55.34vw;  /* 756 / 1366 */
+      height: 41.29vw;  /* 564 / 1366 */
+      z-index: 1;
+    }
+    .s2-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* "Concept-driven & curated AI production" SVG — with bleed */
+    .s2-concept {
+      position: absolute;
+      left:   19.40vw;  /* 265 / 1366 */
+      top:     3.22vw;  /*  44 / 1366 */
+      width:  54.76vw;  /* 748 / 1366 */
+      height: 41.95vw;  /* 573 / 1366 */
+      z-index: 2;
+    }
+    /* inner wrapper expands beyond its parent — the Figma bleed pattern */
+    .s2-concept-inner {
+      position: absolute;
+      top:    -7.86%;
+      left:   -6.02%;
+      right:  -6.02%;
+      bottom: -7.86%;
+    }
+    .s2-concept-inner img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Shared glass pill style */
+    .s2-tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(217, 217, 217, 0.2);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      border-radius: 156px;
+      padding: 0.586vw 1.025vw;  /* 8px 14px / 1366 */
+      white-space: nowrap;
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(7px, 0.659vw, 9px);  /* 9 / 1366 */
+      line-height: normal;
+      color: #000;
+    }
+
+    /* Tag — left side */
+    .s2-tag-left {
+      position: absolute;
+      left:  3.07vw;  /* 42 / 1366 */
+      top:   3.22vw;  /* 44 / 1366 */
+      z-index: 3;
+    }
+
+    /* Tags group — right side (logo + 2 pills) */
+    .s2-tags-right {
+      position: absolute;
+      right:  3.07vw;  /* 42 / 1366 */
+      top:    3.22vw;  /* 44 / 1366 */
+      display: flex;
+      align-items: center;
+      gap: 0.293vw;    /* 4 / 1366 */
+      z-index: 3;
+    }
+
+    /* AHW logo in tags */
+    .s2-logo {
+      width:  2.12vw;  /* 29 / 1366 */
+      height: 1.98vw;  /* 27 / 1366 */
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* Tag-2 (:—) has equal padding */
+    .s2-tag-smiley {
+      padding: 0.586vw;  /* 8px all sides */
+    }
+
+    /* Description body text */
+    .s2-desc {
+      position: absolute;
+      left:  3.07vw;   /* 42 / 1366 */
+      top:  52.86vw;   /* 722 / 1366 */
+      width: 47.29vw;  /* 646 / 1366 */
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(12px, 1.245vw, 17px);  /* 17 / 1366 */
+      line-height: normal;
+      color: #000;
+      z-index: 3;
+    }
+
   </style>
 </head>
 <body>
@@ -178,6 +293,40 @@
     </p>
     <p class="hero-caption hero-caption-cats">
       fashion &gt; beauty &gt; lifestyle &gt; culture &gt; artists &gt; tech &gt;&gt;&gt;
+    </p>
+
+  </section>
+
+  <!-- ══ SCREEN 2 ══════════════════════════════════════════ -->
+  <section class="screen2">
+
+    <!-- Photo — bottom-right, z-index 1 (behind text) -->
+    <div class="s2-photo">
+      <img src="s2-photo.jpg" alt="After Hours — jewel teeth campaign" />
+    </div>
+
+    <!-- "Concept-driven & curated AI production" SVG with bleed -->
+    <div class="s2-concept">
+      <div class="s2-concept-inner">
+        <img src="s2-concept.svg" alt="Concept-driven &amp; curated AI production" />
+      </div>
+    </div>
+
+    <!-- Tag left — "AfterHours content production studio" -->
+    <div class="s2-tag s2-tag-left">
+      AfterHours content production studio
+    </div>
+
+    <!-- Tags right — logo + :—) + "all images here are generated" -->
+    <div class="s2-tags-right">
+      <img class="s2-logo" src="s2-logo.svg" alt="AHW" />
+      <div class="s2-tag s2-tag-smiley">:—)</div>
+      <div class="s2-tag">all images here are generated</div>
+    </div>
+
+    <!-- Body text -->
+    <p class="s2-desc">
+      We work at the intersection of art direction and generative technology — using innovative tools to shape ideas, build visual systems, and create campaigns for brands
     </p>
 
   </section>
