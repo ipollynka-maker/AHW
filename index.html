@@ -620,6 +620,32 @@
     }
 
     /* ══════════════════════════════════════════════════════════
+       SCREEN 22  —  Grid-13: video + video + image + video
+    ══════════════════════════════════════════════════════════ */
+    .screen22 {
+      display: flex;
+      gap: 2px;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .s22-cell {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      height: 33.33vw;   /* 504 / 1512 */
+    }
+    .s22-cell img,
+    .s22-cell video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════════════════════════
        SCREEN 20  —  Grid-11: image + image + video + image
     ══════════════════════════════════════════════════════════ */
     .screen20 {
@@ -1471,6 +1497,14 @@
   <section class="screen21">
     <div class="s17-cell"><img src="s17-img1.png" alt="" /></div>
     <div class="s17-cell"><video src="s17-v1.mp4" autoplay muted loop playsinline></video></div>
+  </section>
+
+  <!-- ══ SCREEN 22 — Grid-13: video + video + image + video ══ -->
+  <section class="screen22">
+    <div class="s22-cell"><video src="s22-v1.mp4" autoplay muted loop playsinline></video></div>
+    <div class="s22-cell"><video src="s22-v2.mp4" autoplay muted loop playsinline></video></div>
+    <div class="s22-cell"><img src="s22-img3.png" alt="" /></div>
+    <div class="s22-cell"><video src="s22-v4.mp4" autoplay muted loop playsinline></video></div>
   </section>
 
 </body>
