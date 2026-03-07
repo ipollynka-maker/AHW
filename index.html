@@ -620,6 +620,32 @@
     }
 
     /* ══════════════════════════════════════════════════════════
+       SCREEN 17  —  Grid-9: 1 image + 1 video (2 equal cells)
+    ══════════════════════════════════════════════════════════ */
+    .screen17 {
+      display: flex;
+      gap: 2px;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .s17-cell {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      height: 63.49vw;   /* 960 / 1512 */
+    }
+    .s17-cell img,
+    .s17-cell video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════════════════════════
        SCREEN 16  —  Grid-8: 3 images + 1 video
     ══════════════════════════════════════════════════════════ */
     .screen16 {
@@ -1292,6 +1318,12 @@
     <div class="s16-cell"><img src="s16-img2.jpg" alt="" /></div>
     <div class="s16-cell"><img src="s16-img3.jpg" alt="" /></div>
     <div class="s16-cell"><video src="s16-v1.mp4" autoplay muted loop playsinline></video></div>
+  </section>
+
+  <!-- ══ SCREEN 17 — Grid-9: 1 image + 1 video ════════════ -->
+  <section class="screen17">
+    <div class="s17-cell"><img src="s17-img1.png" alt="" /></div>
+    <div class="s17-cell"><video src="s17-v1.mp4" autoplay muted loop playsinline></video></div>
   </section>
 
 </body>
