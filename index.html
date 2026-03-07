@@ -503,7 +503,7 @@
       display: block;
     }
     .s4-deliverables-text {
-      width: 23.35vw;   /* 319 / 1366 */
+      width: 319px;
       font-family: 'Macan Mono', monospace;
       font-size: clamp(12px, 1.245vw, 17px);
       line-height: normal;
@@ -593,6 +593,27 @@
     .s7-img1 { top: -0.03%; left: -3.72%; width: 103.72%; height: 103.64%; }
     .s7-img2 { top: 0;      left: -46.04%; width: 199.8%;  height: 100%;    }
     .s7-img3 { top: -3.37%; left: -0.01%; width: 125.64%; height: 106.15%; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 10  —  Case study 2 (same layout as Screen 5)
+    ══════════════════════════════════════════════════════════ */
+    .screen10 {
+      position: relative;
+      width: 100%;
+      height: 24.93vw;   /* 340 / 1366 */
+      overflow: hidden;
+      background: #fff;
+    }
+    /* Left text col — no underline (unlike s5-link) */
+    .s10-left {
+      width: 297px;
+      flex-shrink: 0;
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(12px, 1.245vw, 17px);
+      line-height: normal;
+      color: #000;
+    }
+    .s10-left p { margin: 0; }
 
     /* ══════════════════════════════════════════════════════════
        SCREEN 9  —  AI Exploration service page (same layout as S4)
@@ -994,6 +1015,25 @@
           <p>AI generation<br>tokens includes</p>
         </div>
       </div>
+    </div>
+
+  </section>
+
+  <!-- ══ SCREEN 10 — Case study: TBC Bank ════════════════ -->
+  <section class="screen10">
+
+    <!-- Text block — right, vertically centered -->
+    <div class="s5-text-block">
+      <div class="s10-left">
+        <p>AI Visual Research<br>for TBC Bank UZ</p>
+        <p>tbcbank.uz</p>
+      </div>
+      <p class="s5-desc">Developed an AI-driven visual system and concept exploration for a banking AI assistant, combining generative photography, illustration, and video aesthetics. The system enabled scalable production of campaign visuals while maintaining a consistent and culturally relevant visual identity.</p>
+    </div>
+
+    <!-- Arrow — left, vertically centered -->
+    <div class="s5-arrow">
+      <img src="s5-arrow.svg" alt="" />
     </div>
 
   </section>
