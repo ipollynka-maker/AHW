@@ -152,7 +152,7 @@
       position: relative;
       width: 100%;
       height: 70.28vw;    /* 960 / 1366 */
-      margin-top: 5.86vw; /* 80 / 1366 — gap between screens */
+      margin-top: 0;
       overflow: hidden;
       background: #fff;
     }
@@ -268,7 +268,7 @@
       position: relative;
       width: 100%;
       height: 90.04vw;    /* 1230 / 1366 */
-      margin-top: 5.86vw; /* 80 / 1366 */
+      margin-top: 0;
       overflow: hidden;
       background: #fff;
     }
@@ -401,7 +401,7 @@
       position: relative;
       width: 100%;
       height: 51.24vw;    /* 700 / 1366 */
-      margin-top: 5.86vw;
+      margin-top: 0;
       overflow: hidden;
       background: #fff;
     }
@@ -564,6 +564,34 @@
       height:  4.61vw;   /* 63  / 1366 */
     }
     .s5-arrow img { width: 100%; height: 100%; display: block; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 7  —  Grid-2: 3-col (376 | 376 | 757) × 504px
+    ══════════════════════════════════════════════════════════ */
+    .screen7 {
+      display: flex;
+      gap: 2px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .s7-cell {
+      position: relative;
+      overflow: hidden;
+      height: 33.33vw;   /* 504 / 1512 */
+      flex-shrink: 0;
+    }
+    .s7-cell-sm { flex: 376; }
+    .s7-cell-lg { flex: 757; }
+
+    /* Per-cell image crop — matches Figma inset percentages */
+    .s7-cell img {
+      position: absolute;
+      max-width: none;
+      pointer-events: none;
+    }
+    .s7-img1 { top: -0.03%; left: -3.72%; width: 103.72%; height: 103.64%; }
+    .s7-img2 { top: 0;      left: -46.04%; width: 199.8%;  height: 100%;    }
+    .s7-img3 { top: -3.37%; left: -0.01%; width: 125.64%; height: 106.15%; }
 
     /* ══════════════════════════════════════════════════════════
        SCREEN 6  —  Grid 2-col: Image + Video  (756 × 960 each)
@@ -822,6 +850,22 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- ══ SCREEN 7 — Grid-2: 3-col images ═════════════════ -->
+  <section class="screen7">
+    <!-- Image-1: rooftop couple (narrow) -->
+    <div class="s7-cell s7-cell-sm">
+      <img class="s7-img1" src="s7-img1.png" alt="" />
+    </div>
+    <!-- Image-2: man with sunglasses (narrow, cropped center) -->
+    <div class="s7-cell s7-cell-sm">
+      <img class="s7-img2" src="s7-img2.png" alt="" />
+    </div>
+    <!-- Image-3: woman with purple tie (wide) -->
+    <div class="s7-cell s7-cell-lg">
+      <img class="s7-img3" src="s7-img3.png" alt="" />
+    </div>
   </section>
 
 </body>
