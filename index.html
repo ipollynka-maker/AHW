@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>After Hours — Pitch</title>
+  <style>
+    /* ── Fonts ────────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'AS Therma';
+      font-style: normal;
+      font-weight: 700;
+      src: url('https://raw.githubusercontent.com/ipollynka-maker/AHW/main/ASTherma-BoldCondensed.otf') format('opentype');
+    }
+    @font-face {
+      font-family: 'Macan Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('https://raw.githubusercontent.com/ipollynka-maker/AHW/main/MacanMono-Book.otf') format('opentype');
+    }
+
+    /* ── Reset ───────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       HERO  —  design ref: 1366 × 900 px
+       All absolute positions / sizes → px ÷ 1366 × 100 = vw
+    ══════════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 65.89vw;     /* 900 / 1366 */
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* "after hours" — giant rotated headline ──────────────── */
+    /*
+      Figma: container centre-x = 231.5px, width = 407px, height = 918px, top = 21px
+      left = centre - width/2 = 231.5 - 203.5 = 28px → 2.05vw
+    */
+    .hero-title-wrap {
+      position: absolute;
+      left:   2.05vw;    /* 28 / 1366  */
+      top:    1.54vw;    /* 21 / 1366  */
+      width:  29.79vw;   /* 407 / 1366 */
+      height: 67.2vw;    /* 918 / 1366 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .hero-title-text {
+      transform: rotate(-90deg);
+      flex-shrink: 0;
+      font-family: 'AS Therma', sans-serif;
+      font-weight: 700;
+      font-size:      24.82vw;   /* 339 / 1366 */
+      letter-spacing: -1.489vw;  /* -20.34 / 1366 */
+      line-height: normal;
+      color: #000;
+      white-space: nowrap;
+      font-feature-settings:
+        'cv01' 1, 'cv02' 1, 'salt' 1,
+        'ss01' 1, 'ss02' 1, 'ss03' 1, 'ss04' 1, 'dlig' 1;
+    }
+
+    /* Studio name SVG ("After Hours content production studio") */
+    .hero-studio {
+      position: absolute;
+      left:   calc(20% + 7.66vw); /* calc(20% + 104.6/1366*100vw) */
+      top:    2.49vw;   /* 34  / 1366 */
+      width:  25.92vw;  /* 354 / 1366 */
+      height: 44.51vw;  /* 608 / 1366 */
+    }
+    .hero-studio img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* "Photo / Video / AI" text SVG — right-anchored */
+    .hero-services {
+      position: absolute;
+      right:  3.07vw;   /* 42  / 1366 */
+      top:    2.49vw;   /* 34  / 1366 */
+      width:  15.96vw;  /* 218 / 1366 */
+      height: 38.44vw;  /* 525 / 1366 */
+    }
+    .hero-services img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Arrow icon — right-anchored */
+    .hero-arrow {
+      position: absolute;
+      right:  20.94vw;  /* 286 / 1366 */
+      top:    27.38vw;  /* 374 / 1366 */
+      width:   3.95vw;  /*  54 / 1366 */
+      height: 18.45vw;  /* 252 / 1366 */
+    }
+    .hero-arrow img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Bottom caption text */
+    .hero-caption {
+      position: absolute;
+      top: 56.07vw;  /* 766 / 1366 */
+      font-family: 'Macan Mono', monospace;
+      font-size: clamp(10px, 1.1vw, 15px);
+      line-height: normal;
+      color: #000;
+    }
+
+    .hero-caption-desc {
+      left:  calc(20% + 7.66vw);
+      width: 29.72vw;  /* 406 / 1366 */
+    }
+
+    /* Categories: original right: 573px → left edge at (100% - 573px)
+       responsive: left: calc(100% - 41.95vw) */
+    .hero-caption-cats {
+      left: calc(100% - 41.95vw);
+      white-space: nowrap;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <section class="hero">
+
+    <!-- Giant rotated "after hours" headline -->
+    <div class="hero-title-wrap">
+      <span class="hero-title-text">after hours</span>
+    </div>
+
+    <!-- "After Hours content production studio" SVG -->
+    <div class="hero-studio">
+      <img src="s1-h2-1.svg" alt="After Hours content production studio" />
+    </div>
+
+    <!-- "Photo Video AI" SVG -->
+    <div class="hero-services">
+      <img src="s1-text.svg" alt="Photo Video AI" />
+    </div>
+
+    <!-- Arrow -->
+    <div class="hero-arrow">
+      <img src="s1-arrow.svg" alt="" />
+    </div>
+
+    <!-- Bottom captions -->
+    <p class="hero-caption hero-caption-desc">
+      An independent content production studio with a multidisciplinary approach
+    </p>
+    <p class="hero-caption hero-caption-cats">
+      fashion &gt; beauty &gt; lifestyle &gt; culture &gt; artists &gt; tech &gt;&gt;&gt;
+    </p>
+
+  </section>
+
+</body>
+</html>
