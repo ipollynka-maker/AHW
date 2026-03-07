@@ -620,6 +620,32 @@
     }
 
     /* ══════════════════════════════════════════════════════════
+       SCREEN 19  —  Grid-10: video + image + image + video
+    ══════════════════════════════════════════════════════════ */
+    .screen19 {
+      display: flex;
+      gap: 2px;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .s19-cell {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      height: 33.33vw;   /* 504 / 1512 */
+    }
+    .s19-cell img,
+    .s19-cell video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════════════════════════
        SCREEN 18  —  AI Editorial / Drop Launch Pack service page
     ══════════════════════════════════════════════════════════ */
     .screen18 {
@@ -1396,6 +1422,14 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- ══ SCREEN 19 — Grid-10: video + image + image + video ══ -->
+  <section class="screen19">
+    <div class="s19-cell"><video src="s19-v1.mov" autoplay muted loop playsinline></video></div>
+    <div class="s19-cell"><img src="s19-img2.png" alt="" /></div>
+    <div class="s19-cell"><img src="s19-img3.jpg" alt="" /></div>
+    <div class="s19-cell"><video src="s19-v4.mp4" autoplay muted loop playsinline></video></div>
   </section>
 
 </body>
