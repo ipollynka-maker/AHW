@@ -1055,18 +1055,12 @@
     }
     .s29-h1 {
       position: absolute;
-      left: 5.49vw;     /* 75 / 1366 */
-      top: 5.86vw;      /* 80 / 1366 */
-      width: 31.70vw;   /* 433 / 1366 */
-      height: 34.33vw;  /* 469 / 1366 */
-      overflow: hidden;
+      left: 3.22vw;     /* (75 - 31bleed) / 1366 */
+      top: 3.59vw;      /* (80 - 31bleed) / 1366 */
+      width: 36.24vw;   /* 495 / 1366 (SVG natural width incl. bleed) */
       z-index: 2;
     }
-    .s29-h1-inner {
-      position: absolute;
-      inset: -6.61% -7.16%;
-    }
-    .s29-h1-inner img { width: 100%; height: 100%; display: block; }
+    .s29-h1 img { width: 100%; display: block; }
     .s29-text {
       position: absolute;
       left: 51.07vw;    /* 697.6 / 1366 */
@@ -1706,9 +1700,7 @@
 
     <!-- "Let's talk" SVG blob -->
     <div class="s29-h1">
-      <div class="s29-h1-inner">
-        <img src="s29-union.svg" alt="Let's talk" />
-      </div>
+      <img src="s29-union.svg" alt="Let's talk" />
     </div>
 
     <!-- Body text -->
