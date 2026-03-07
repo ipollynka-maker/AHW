@@ -620,6 +620,32 @@
     }
 
     /* ══════════════════════════════════════════════════════════
+       SCREEN 20  —  Grid-11: image + image + video + image
+    ══════════════════════════════════════════════════════════ */
+    .screen20 {
+      display: flex;
+      gap: 2px;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .s20-cell {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      height: 33.33vw;   /* 504 / 1512 */
+    }
+    .s20-cell img,
+    .s20-cell video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════════════════════════
        SCREEN 19  —  Grid-10: video + image + image + video
     ══════════════════════════════════════════════════════════ */
     .screen19 {
@@ -1430,6 +1456,14 @@
     <div class="s19-cell"><img src="s19-img2.png" alt="" /></div>
     <div class="s19-cell"><img src="s19-img3.jpg" alt="" /></div>
     <div class="s19-cell"><video src="s19-v4.mp4" autoplay muted loop playsinline></video></div>
+  </section>
+
+  <!-- ══ SCREEN 20 — Grid-11: image + image + video + image ══ -->
+  <section class="screen20">
+    <div class="s20-cell"><img src="s20-img1.jpg" alt="" /></div>
+    <div class="s20-cell"><img src="s20-img2.jpg" alt="" /></div>
+    <div class="s20-cell"><video src="s20-v3.mp4" autoplay muted loop playsinline></video></div>
+    <div class="s20-cell"><img src="s20-img4.jpg" alt="" /></div>
   </section>
 
 </body>
