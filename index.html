@@ -620,6 +620,32 @@
     }
 
     /* ══════════════════════════════════════════════════════════
+       SCREEN 14  —  Grid-6: 3 videos + 1 image
+    ══════════════════════════════════════════════════════════ */
+    .screen14 {
+      display: flex;
+      gap: 2px;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .s14-cell {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      height: 44.51vw;   /* 673 / 1512 */
+    }
+    .s14-cell video,
+    .s14-cell img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════════════════════════
        SCREEN 13  —  AI Campaign Production service page
     ══════════════════════════════════════════════════════════ */
     .screen13 {
@@ -1191,6 +1217,14 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- ══ SCREEN 14 — Grid-6: 3 videos + 1 image ══════════ -->
+  <section class="screen14">
+    <div class="s14-cell"><video src="s14-v1.mov" autoplay muted loop playsinline></video></div>
+    <div class="s14-cell"><video src="s14-v2.mov" autoplay muted loop playsinline></video></div>
+    <div class="s14-cell"><video src="s14-v3.mov" autoplay muted loop playsinline></video></div>
+    <div class="s14-cell"><img src="s14-img.png" alt="" /></div>
   </section>
 
 </body>
