@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>After Hours — Pitch</title>
+  <title>After Hours</title>
   <style>
-    /* ── Fonts ────────────────────────────────────────────────── */
+    /* ── Fonts ─────────────────────────────────────────────── */
     @font-face {
       font-family: 'AS Therma';
       font-style: normal;
@@ -19,1692 +18,1230 @@
       src: url('https://raw.githubusercontent.com/ipollynka-maker/AHW/main/MacanMono-Book.otf') format('opentype');
     }
 
-    /* ── Reset ───────────────────────────────────────────────── */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: #fff; min-width: 1512px; }
 
-    html, body {
-      background: #fff;
-      overflow-x: hidden;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       HERO  —  design ref: 1366 × 900 px
-       All absolute positions / sizes → px ÷ 1366 × 100 = vw
-    ══════════════════════════════════════════════════════════ */
-    .hero {
+    /* ── Shared: screen container ──────────────────────────── */
+    .screen {
+      width: 1512px;
+      height: 982px;
       position: relative;
-      width: 100%;
-      height: 65.89vw;     /* 900 / 1366 */
-      overflow: hidden;
       background: #fff;
+      overflow: hidden;
     }
 
-    /* "after hours" — giant rotated headline ──────────────── */
-    /*
-      Figma: container centre-x = 231.5px, width = 407px, height = 918px, top = 21px
-      left = centre - width/2 = 231.5 - 203.5 = 28px → 2.05vw
-    */
-    .hero-title-wrap {
-      position: absolute;
-      left:   2.05vw;    /* 28 / 1366  */
-      top:    1.54vw;    /* 21 / 1366  */
-      width:  29.79vw;   /* 407 / 1366 */
-      height: 67.2vw;    /* 918 / 1366 */
-      display: flex;
+    /* ── Shared: glass pill tags ───────────────────────────── */
+    .tag {
+      background: rgba(217, 217, 217, 0.2);
+      border-radius: 156px;
+      font-family: 'Macan Mono', monospace;
+      font-size: 14px;
+      line-height: normal;
+      color: #000;
+      white-space: nowrap;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      overflow: visible;
-    }
-
-    .hero-title-text {
-      transform: rotate(-90deg);
-      flex-shrink: 0;
-      font-family: 'AS Therma', sans-serif;
-      font-weight: 700;
-      font-size:      24.82vw;   /* 339 / 1366 */
-      letter-spacing: -1.489vw;  /* -20.34 / 1366 */
-      line-height: normal;
-      color: #000;
-      white-space: nowrap;
-      font-feature-settings:
-        'cv01' 1, 'cv02' 1, 'salt' 1,
-        'ss01' 1, 'ss02' 1, 'ss03' 1, 'ss04' 1, 'dlig' 1;
-    }
-
-    /* Studio name SVG ("After Hours content production studio") */
-    .hero-studio {
-      position: absolute;
-      left:   calc(20% + 7.66vw); /* calc(20% + 104.6/1366*100vw) */
-      top:    2.49vw;   /* 34  / 1366 */
-      width:  25.92vw;  /* 354 / 1366 */
-      height: 44.51vw;  /* 608 / 1366 */
-    }
-    .hero-studio img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* "Photo / Video / AI" text SVG — right-anchored */
-    .hero-services {
-      position: absolute;
-      right:  3.07vw;   /* 42  / 1366 */
-      top:    2.49vw;   /* 34  / 1366 */
-      width:  15.96vw;  /* 218 / 1366 */
-      height: 38.44vw;  /* 525 / 1366 */
-    }
-    .hero-services img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Arrow icon — right-anchored */
-    .hero-arrow {
-      position: absolute;
-      right:  20.94vw;  /* 286 / 1366 */
-      top:    27.38vw;  /* 374 / 1366 */
-      width:   3.95vw;  /*  54 / 1366 */
-      height: 18.45vw;  /* 252 / 1366 */
-    }
-    .hero-arrow img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Bottom caption text */
-    .hero-caption {
-      position: absolute;
-      top: 56.07vw;  /* 766 / 1366 */
-      font-family: 'Macan Mono', monospace;
-      font-size: clamp(10px, 1.1vw, 15px);
-      line-height: normal;
-      color: #000;
-    }
-
-    .hero-caption-desc {
-      left:  calc(20% + 7.66vw);
-      width: 406px;
-    }
-
-    /* Categories: original right: 573px → left edge at (100% - 573px)
-       responsive: left: calc(100% - 41.95vw) */
-    .hero-caption-cats {
-      right: 3.07vw;  /* 42 / 1366 — anchors right edge, same margin as services SVG */
-      white-space: nowrap;
     }
 
     /* ══════════════════════════════════════════════════════════
-       SCREEN 2  —  design ref: 1366 × 960 px
+       SCREEN 1  —  Hero  (1512 × 982)
+       Design ref: node 255:1019
     ══════════════════════════════════════════════════════════ */
-    .screen2 {
-      position: relative;
-      width: 100%;
-      height: 70.28vw;    /* 960 / 1366 */
-      margin-top: 0;
-      overflow: hidden;
-      background: #fff;
+
+    .s1-right {
+      position: absolute;
+      right: 32px;
+      top: 32px;
+      width: 299px;
+      height: 532px;
+    }
+    .s1-right img { width: 100%; height: 100%; display: block; }
+
+    .s1-left {
+      position: absolute;
+      left: 32px;
+      top: 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
     }
 
-    /* Photo — bottom-right anchored, behind everything */
+    .s1-logo {
+      width: 237px;
+      height: 884px;
+      flex-shrink: 0;
+    }
+    .s1-logo img { width: 100%; height: 100%; display: block; }
+
+    .s1-top-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 240px;
+      align-items: flex-start;
+      flex-shrink: 0;
+    }
+
+    .s1-h2 {
+      width: 354px;
+      height: 608px;
+      flex-shrink: 0;
+    }
+    .s1-h2 img { width: 100%; height: 100%; display: block; }
+
+    .s1-para {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      font-family: 'Macan Mono', monospace;
+      font-size: 16px;
+      line-height: normal;
+      color: #000;
+      flex-shrink: 0;
+    }
+    .s1-para-left  { width: 426px; flex-shrink: 0; }
+    .s1-para-right { white-space: nowrap; flex-shrink: 0; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 2  —  Concept  (1512 × 982)
+       Design ref: node 255:1050
+    ══════════════════════════════════════════════════════════ */
+
+    /* Image-1: teeth photo — bottom:0, right:0, 744×555 */
     .s2-photo {
       position: absolute;
       bottom: 0;
       right: 0;
-      width:  55.34vw;  /* 756 / 1366 */
-      height: 41.29vw;  /* 564 / 1366 */
-      z-index: 1;
+      width: 744px;
+      height: 555px;
+      overflow: hidden;
     }
     .s2-photo img {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    /* "Concept-driven & curated AI production" SVG — with bleed */
-    .s2-concept {
+    /* H1-Display blob — no overflow:hidden (shaped SVG)
+       Container clip: left 277px, top 64px, 748×573
+       Bleed: 7.86% vert (45px), 6.02% horiz (45px)
+       Bleed-adjusted: left 232px, top 19px, 838×663 */
+    /* H1-Display blob — container clip: 748×573 at left 277, top 64
+       Bleed: 7.86% vert (45px), 6.02% horiz (45px)
+       Full render size: 838×663, offset by bleed: left 232, top 19 */
+    .s2-h1 {
       position: absolute;
-      left:   19.40vw;  /* 265 / 1366 */
-      top:     3.22vw;  /*  44 / 1366 */
-      width:  54.76vw;  /* 748 / 1366 */
-      height: 41.95vw;  /* 573 / 1366 */
+      left: 232px;
+      top: 19px;
+      width: 838px;
+      height: 663px;
       z-index: 2;
     }
-    /* inner wrapper expands beyond its parent — the Figma bleed pattern */
-    .s2-concept-inner {
-      position: absolute;
-      top:    -7.86%;
-      left:   -6.02%;
-      right:  -6.02%;
-      bottom: -7.86%;
-    }
-    .s2-concept-inner img {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+    .s2-h1 img { width: 100%; height: 100%; display: block; }
 
-    /* Shared glass pill style */
-    .s2-tag {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(217, 217, 217, 0.2);
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-      border-radius: 156px;
-      padding: 0.586vw 1.025vw;  /* 8px 14px / 1366 */
-      white-space: nowrap;
-      font-family: 'Macan Mono', monospace;
-      font-size: clamp(7px, 0.659vw, 9px);  /* 9 / 1366 */
-      line-height: normal;
-      color: #000;
-    }
-
-    /* Tag — left side */
+    /* Tag — top left */
     .s2-tag-left {
       position: absolute;
-      left:  3.07vw;  /* 42 / 1366 */
-      top:   3.22vw;  /* 44 / 1366 */
-      z-index: 3;
+      left: 32px;
+      top: 32px;
+      padding: 8px 14px;
     }
 
-    /* Tags group — right side (logo + 2 pills) */
+    /* Tags — top right */
     .s2-tags-right {
       position: absolute;
-      right:  3.07vw;  /* 42 / 1366 */
-      top:    3.22vw;  /* 44 / 1366 */
+      right: 32px;
+      top: 32px;
       display: flex;
       align-items: center;
-      gap: 0.293vw;    /* 4 / 1366 */
-      z-index: 3;
+      gap: 2px;
     }
-
-    /* AHW logo in tags */
+    .s2-tags-right .tag { padding: 8px 16px; }
     .s2-logo {
-      width:  2.12vw;  /* 29 / 1366 */
-      height: 1.98vw;  /* 27 / 1366 */
-      flex-shrink: 0;
+      width: 34px;
+      height: 32px;
       display: block;
+      flex-shrink: 0;
     }
 
-    /* Tag-2 (:—) has equal padding */
-    .s2-tag-smiley {
-      padding: 0.586vw;  /* 8px all sides */
-    }
-
-    /* Description body text */
-    .s2-desc {
+    /* Body text — left 32px, top 795px, 467px, 20px */
+    .s2-body {
       position: absolute;
-      left:  3.07vw;   /* 42 / 1366 */
-      top:  52.86vw;   /* 722 / 1366 */
-      width: 646px;
+      left: 32px;
+      top: 795px;
+      width: 467px;
       font-family: 'Macan Mono', monospace;
-      font-size: clamp(12px, 1.245vw, 17px);  /* 17 / 1366 */
+      font-size: 20px;
       line-height: normal;
       color: #000;
-      z-index: 3;
     }
 
     /* ══════════════════════════════════════════════════════════
-       SCREEN 3  —  design ref: 1366 × 1230 px
-       (height derived from layout: arrow bottom=34px, H1 centred at 50%+153.5px)
+       SCREEN 3  —  How We Work  (1512 × 982)
+       Design ref: node 255:1093
     ══════════════════════════════════════════════════════════ */
-    .screen3 {
-      position: relative;
-      width: 100%;
-      height: 90.04vw;    /* 1230 / 1366 */
-      margin-top: 0;
-      overflow: hidden;
-      background: #fff;
-    }
 
-    /* Tags left top — 2 pills */
-    .s3-tags-left {
+    /* Tags — top left */
+    .s3-tags {
       position: absolute;
-      left:  3.07vw;   /* 42 / 1366 */
-      top:   2.49vw;   /* 34 / 1366 */
+      left: 32px;
+      top: 32px;
       display: flex;
-      gap: 0.293vw;
-      z-index: 3;
+      align-items: center;
+      gap: 2px;
     }
+    .s3-tags .tag { padding: 8px 14px; }
 
-    /* Display-Group ticker — 4 individual word SVGs in a flex row.
-       Natural widths: 311+523+414+241 = 1489. Height at which total = 1vw viewport:
-       H = 1 / (311/193 + 523/196 + 414/172 + 241/170) × 100 = 12.33vw
-       At this height, width:auto on each img fills exactly 100vw with no gaps. */
-    .s3-display {
+    /* Screen 3 height override */
+    .screen.s3 { height: 1330px; }
+
+    /* Display-Group ticker: 4 individual blob SVGs — centered, 1382×124 container, bleed inset */
+    .s3-ticker {
       position: absolute;
-      left:   0;
-      right:  0;
-      top:    11.05vw;  /* 151 / 1366 — matches Figma container top */
+      left: 50%;
+      transform: translateX(-50%);
+      top: 136px;
+      width: 1382px;
+      height: 124px;
+    }
+    .s3-ticker-inner {
+      position: absolute;
+      inset: -28.94% -2.6%;
       display: flex;
       align-items: stretch;
-      z-index: 1;
     }
-    .s3-display img {
-      height: 12.33vw;
-      width:  auto;
-      display: block;
-    }
+    /* flex proportional to natural SVG widths: 311 + 523 + 414 + 241 */
+    .s3-ticker-inner img { height: 100%; display: block; width: 0; }
+    .s3-ticker-inner img.s3-blob-concept       { flex: 311; }
+    .s3-ticker-inner img.s3-blob-visual-system { flex: 523; }
+    .s3-ticker-inner img.s3-blob-production    { flex: 414; }
+    .s3-ticker-inner img.s3-blob-scale         { flex: 241; }
 
-    /* Tags centre — "how we work" + "our method" */
-    .s3-tags-centre {
+    /* Center tags — "how we work" / "our method" */
+    .s3-center-tags {
       position: absolute;
-      left:  50%;
-      top:   20.28vw;   /* 277 / 1366 */
+      left: 50%;
       transform: translateX(-50%);
+      top: 260px;
       display: flex;
-      gap: 0.293vw;
-      z-index: 3;
+      align-items: center;
+      gap: 2px;
     }
+    .s3-center-tags .tag { padding: 8px 14px; }
 
-    /* Paragraph-Group — 4 columns */
-    .s3-para-group {
+    /* Centre-block: paragraphs + Project Formats blob + Explore text */
+    .s3-centre-block {
       position: absolute;
-      left:  3.07vw;    /* 42 / 1366 */
-      right: 3.07vw;    /* 42 / 1366 */
-      top:   30.82vw;   /* 421 / 1366 */
-      display:   flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      z-index: 3;
-    }
-    .s3-para-col {
-      width: 314px;
-      font-family: 'Macan Mono', monospace;
-      font-size:   clamp(12px, 1.245vw, 17px);  /* 17 / 1366 */
-      line-height: normal;
-      color: #000;
-    }
-
-    /* H1-Display — "Project Formats" pink blob, centred with bleed */
-    .s3-h1 {
-      position: absolute;
-      left:   50%;
-      top:    calc(50% + 11.24vw);  /* calc(50% + 153.5/1366*100vw) */
-      transform: translateX(-50%) translateY(-50%);
-      width:  83.75vw;   /* 1144 / 1366 */
-      height: 33.46vw;   /* 457  / 1366 */
-      z-index: 2;
-    }
-    .s3-h1-inner {
-      position: absolute;
-      top:    -11.16%;
-      left:    -4.46%;
-      right:   -4.46%;
-      bottom: -11.16%;
-    }
-    .s3-h1-inner img {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* "Explore the format that fits your scope" — centred below H1 */
-    /* visual top = section_height(1230) - bottom(273) + translateY(40) = 997px → /1366 */
-    .s3-explore {
-      position: absolute;
-      left:    calc(50% - 119px);   /* centres the 238px-wide element */
-      top:     73.02vw;              /* 997 / 1366 */
-      width:   238px;
-      font-family: 'Macan Mono', monospace;
-      font-size:   clamp(12px, 1.245vw, 17px);
-      line-height: normal;
-      color: #000;
-      z-index: 3;
-    }
-
-    /* Arrow — wide horizontal arrow at bottom centre */
-    .s3-arrow-outer {
-      position: absolute;
-      bottom: 2.49vw;   /* 34 / 1366 */
-      left:   50%;
+      left: 50%;
       transform: translateX(-50%);
-      width:  75.18vw;  /* 1027 / 1366 */
-      height:  7.25vw;  /* 99   / 1366 */
+      top: 412px;
+      width: 1448px;
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+      align-items: center;
+    }
+    .s3-para-group {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      font-family: 'Macan Mono', monospace;
+      font-size: 20px;
+      line-height: normal;
+      color: #000;
+      flex-shrink: 0;
+    }
+    .s3-para-col { width: 314px; flex-shrink: 0; }
+
+    /* Project Formats blob: 1144×457 container, bleed inset -11.16% -4.46% */
+    .s3-pf-wrap {
+      width: 1144px;
+      height: 457px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .s3-pf-inner {
+      position: absolute;
+      inset: -11.16% -4.46%;
+    }
+    .s3-pf-inner img { width: 100%; height: 100%; display: block; }
+
+    /* Explore text */
+    .s3-explore {
+      width: 238px;
+      height: 45px;
+      font-family: 'Macan Mono', monospace;
+      font-size: 20px;
+      line-height: normal;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    /* Arrow — bottom center, rotated 90° */
+    .s3-arrow-wrap {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1027px;
+      height: 99px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    /* inner SVG is 99×1027px, rotated 90° → appears 1027×99px */
-    .s3-arrow-inner {
-      flex-shrink: 0;
+    .s3-arrow-rot {
+      flex: none;
       transform: rotate(90deg);
-      width:   7.25vw;   /* 99   / 1366 */
-      height: 75.18vw;   /* 1027 / 1366 */
+      width: 99px;
+      height: 1027px;
+      position: relative;
     }
-    .s3-arrow-inner img {
+    .s3-arrow-rot img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       display: block;
     }
 
     /* ══════════════════════════════════════════════════════════
-       SCREEN 4  —  design ref: 1366 × 700 px
+       SCREEN 4  —  AI Visual System  (1512 × 982)
+       Design ref: node 256:1144
     ══════════════════════════════════════════════════════════ */
-    .screen4 {
-      position: relative;
-      width: 100%;
-      height: 51.24vw;    /* 700 / 1366 */
-      margin-top: 0;
-      overflow: hidden;
-      background: #fff;
-    }
+
+    /* Screen 4 height override */
+    .screen.s4 { height: 1137px; }
 
     /* Tags — top left */
-    .s4-tags {
-      position: absolute;
-      left:  3.07vw;    /* 42 / 1366 */
-      top:   2.49vw;    /* 34 / 1366 */
-      display: flex;
-      gap: 0.293vw;     /* 4 / 1366 */
-      z-index: 3;
-    }
-    /* Text group — top right */
+    .s4-tags { position: absolute; left: 32px; top: 32px; display: flex; align-items: center; gap: 2px; }
+    .s4-tags .tag { padding: 8px 14px; }
+
+    /* AI + Visual System blob: 428×335 container at left:277 top:64, bleed -11.99%/-9.38% */
+    .s4-blob { position: absolute; left: 277px; top: 64px; width: 428px; height: 335px; }
+    .s4-blob-inner { position: absolute; inset: -11.99% -9.38%; display: flex; align-items: stretch; }
+    .s4-blob-inner img { height: 100%; display: block; width: 0; }
+    .s4-blob-inner .s4-ai   { flex: 165; }
+    .s4-blob-inner .s4-vis  { flex: 348; }
+
+    /* Text group — right half, top */
     .s4-text-group {
       position: absolute;
-      right:  3.07vw;   /* 42 / 1366 */
-      top:    2.49vw;   /* 34 / 1366 */
+      left: 768px;
+      top: 32px;
+      width: 712px;
       display: flex;
-      gap: 4.69vw;      /* 64 / 1366 */
+      gap: 24px;
       align-items: flex-start;
-      z-index: 3;
-    }
-    .s4-text-group p {
       font-family: 'Macan Mono', monospace;
-      font-size: clamp(12px, 1.245vw, 17px);
+      font-size: 20px;
       line-height: normal;
       color: #000;
     }
-    .s4-text-p1 { width: 289px; flex-shrink: 0; }
-    .s4-text-p2 { width: 434px; flex-shrink: 0; }
+    .s4-text-col1 { width: 221px; flex-shrink: 0; }
+    .s4-text-col2 { flex: 1; min-width: 0; }
 
-    /* H1-Display blobs */
-    .s4-h1-main {
-      position: absolute;
-      left:   calc(20% + 0.67vw);
-      top:    0.99vw;
-      width:  25.48vw;   /* 348 / 1366 */
-      height: 30.45vw;   /* 416 / 1366 */
-      z-index: 2;
-    }
-    .s4-h1-main img { width: 100%; height: 100%; display: block; }
+    /* Bottom group: deliverables + timeline + price */
+    .s4-bottom-group { position: absolute; left: 32px; top: 499px; display: flex; gap: 24px; align-items: flex-start; }
+    .s4-deliverables { width: 467px; display: flex; flex-direction: column; gap: 40px; flex-shrink: 0; }
+    .s4-timeline     { width: 221px; display: flex; flex-direction: column; gap: 40px; flex-shrink: 0; }
+    .s4-price        { width: 221px; display: flex; flex-direction: column; gap: 40px; flex-shrink: 0; }
+    .s4-bottom-group .tag { padding: 8px 14px; }
+    .s4-deliverables .tag { width: 129px; }
+    .s4-timeline .tag     { width: 96px; }
+    .s4-price .tag        { width: 70px; }
 
-    .s4-h1-ai {
-      position: absolute;
-      left:   11.02vw;   /* 150.5 / 1366 */
-      top:     8.24vw;   /* 112.5 / 1366 */
-      width:  12.08vw;   /* 165   / 1366 */
-      height: 15.81vw;   /* 216   / 1366 */
-      z-index: 2;
-    }
-    .s4-h1-ai img { width: 100%; height: 100%; display: block; }
-
-    /* Bottom row: Deliverables / Timeline / Price */
-    .s4-bottom-group {
-      position: absolute;
-      left:  3.07vw;    /* 42 / 1366 */
-      top:  27.67vw;    /* 378 / 1366 */
-      display: flex;
-      gap: 7.17vw;      /* 98 / 1366 */
-      align-items: flex-start;
-      z-index: 3;
-    }
-    .s4-bottom-col {
-      display: flex;
-      flex-direction: column;
-      gap: 2.93vw;      /* 40 / 1366 */
-      align-items: flex-start;
-    }
-    .s4-deliverables { width: 25.92vw; }  /* 354 / 1366 */
-    .s4-timeline     { width:  6.74vw; }  /* 92  / 1366 */
-    .s4-price        { width: 11.20vw; }  /* 153 / 1366 */
-
-    .s4-bottom-col p {
-      font-family: 'Macan Mono', monospace;
-      font-size: clamp(12px, 1.245vw, 17px);
-      line-height: normal;
-      color: #000;
-      margin: 0;
-    }
-
-    /* Deliverables body */
-    .s4-deliverables-body {
-      display: flex;
-      gap: 1.17vw;      /* 16 / 1366 */
-      align-items: flex-end;
-    }
-    .s4-icons {
-      width:  19px;
-      height: 233px;
-      flex-shrink: 0;
-      position: relative;
-    }
-    .s4-icons img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .s4-deliverables-text {
-      width: 319px;
-      font-family: 'Macan Mono', monospace;
-      font-size: clamp(12px, 1.245vw, 17px);
-      line-height: normal;
-      color: #000;
-    }
-    .s4-deliverables-text p { margin: 0; }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 5  —  design ref: 1366 × 667 px
-    ══════════════════════════════════════════════════════════ */
-    .screen5 {
-      position: relative;
-      width: 100%;
-      height: 24.93vw;   /* 340 / 1366 */
-      overflow: hidden;
-      background: #fff;
-    }
-
-    /* Text block — right-anchored, vertically centered to match arrow */
-    .s5-text-block {
-      position: absolute;
-      right:     3.07vw;   /* 42 / 1366 */
-      top:       calc(50% + 0.5px);
-      transform: translateY(-50%);
-      width:     786px;
-      display:   flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .s5-link {
-      width: 297px;
-      flex-shrink: 0;
-      font-family: 'Macan Mono', monospace;
-      font-size: clamp(12px, 1.245vw, 17px);
-      line-height: normal;
-      color: #000;
-      text-decoration: underline;
-      text-decoration-skip-ink: none;
-    }
-    .s5-link p { margin: 0; }
-    .s5-desc {
-      width: 434px;
-      flex-shrink: 0;
-      font-family: 'Macan Mono', monospace;
-      font-size: clamp(12px, 1.245vw, 17px);
-      line-height: normal;
-      color: #000;
-      margin: 0;
-    }
-
-    /* Arrow — left-anchored, vertically centered */
-    .s5-arrow {
-      position: absolute;
-      left:   3.07vw;    /* 42 / 1366 */
-      top:    calc(50% + 0.5px);
-      transform: translateY(-50%);
-      width:  42.90vw;   /* 586 / 1366 */
-      height:  4.61vw;   /* 63  / 1366 */
-    }
-    .s5-arrow img { width: 100%; height: 100%; display: block; }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 7  —  Grid-2: 3-col (376 | 376 | 757) × 504px
-    ══════════════════════════════════════════════════════════ */
-    .screen7 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s7-cell {
-      position: relative;
-      overflow: hidden;
-      height: 33.33vw;   /* 504 / 1512 */
-      flex-shrink: 0;
-    }
-    .s7-cell-sm { flex: 376; }
-    .s7-cell-lg { flex: 757; }
-
-    /* Per-cell image crop — matches Figma inset percentages */
-    .s7-cell img {
-      position: absolute;
-      max-width: none;
-      pointer-events: none;
-    }
-    .s7-img1 { top: -0.03%; left: -3.72%; width: 103.72%; height: 103.64%; }
-    .s7-img2 { top: 0;      left: -46.04%; width: 199.8%;  height: 100%;    }
-    .s7-img3 { top: -3.37%; left: -0.01%; width: 125.64%; height: 106.15%; }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 11  —  Grid-4: 4 equal video cells
-    ══════════════════════════════════════════════════════════ */
-    .screen11 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s11-cell {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      height: 44.51vw;   /* 673 / 1512 */
-    }
-    .s11-cell video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 24  —  AI E-com Lookbook service page
-    ══════════════════════════════════════════════════════════ */
-    .screen24 {
-      position: relative;
-      width: 100%;
-      height: 54.32vw;   /* 742 / 1366 */
-      overflow: hidden;
-      background: #fff;
-    }
-    .s24-blob {
-      position: absolute;
-      left: 14.64vw;    /* 200 / 1366 */
-      top: 0.37vw;      /*   5 / 1366 */
-      width: 46.56vw;   /* 636 / 1366 */
-      height: 26.21vw;  /* 358 / 1366 */
-      z-index: 2;
-    }
-    .s24-blob img { width: 100%; height: 100%; display: block; }
-    .s24-bottom   { top: 28.03vw; }  /* 383 / 1366 */
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 23  —  Grid-14: full-width single image
-    ══════════════════════════════════════════════════════════ */
-    .screen23 {
-      position: relative;
-      width: 100%;
-      height: 50.53vw;   /* 764 / 1512 */
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .screen23 img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 22  —  Grid-13: video + video + image + video
-    ══════════════════════════════════════════════════════════ */
-    .screen22 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s22-cell {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      height: 33.33vw;   /* 504 / 1512 */
-    }
-    .s22-cell img,
-    .s22-cell video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 20  —  Grid-11: image + image + video + image
-    ══════════════════════════════════════════════════════════ */
-    .screen20 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s20-cell {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      height: 33.33vw;   /* 504 / 1512 */
-    }
-    .s20-cell img,
-    .s20-cell video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 19  —  Grid-10: video + image + image + video
-    ══════════════════════════════════════════════════════════ */
-    .screen19 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s19-cell {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      height: 33.33vw;   /* 504 / 1512 */
-    }
-    .s19-cell img,
-    .s19-cell video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 18  —  AI Editorial / Drop Launch Pack service page
-    ══════════════════════════════════════════════════════════ */
-    .screen18 {
-      position: relative;
-      width: 100%;
-      height: 54.32vw;   /* 742 / 1366 */
-      overflow: hidden;
-      background: #fff;
-      margin-top: 2.49vw;    /* 34px */
-      margin-bottom: 2.49vw; /* 34px */
-    }
-    .s18-blob {
-      position: absolute;
-      left: 17.42vw;    /* 238 / 1366 */
-      top: 1.17vw;      /* 16 / 1366 */
-      width: 22.91vw;   /* 313 / 1366 */
-      height: 36.38vw;  /* 497 / 1366 */
-      z-index: 2;
-    }
-    .s18-blob img { width: 100%; height: 100%; display: block; }
-    .s18-bottom   { top: 33.75vw; }  /* 461 / 1366 */
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 17  —  Grid-9: 1 image + 1 video (2 equal cells)
-    ══════════════════════════════════════════════════════════ */
-    .screen17,
-    .screen21,
-    .screen25,
-    .screen28 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s17-cell {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      height: 63.49vw;   /* 960 / 1512 */
-    }
-    .s17-cell img,
-    .s17-cell video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 16  —  Grid-8: 3 images + 1 video
-    ══════════════════════════════════════════════════════════ */
-    .screen16 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s16-cell {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      height: 33.33vw;   /* 504 / 1512 */
-    }
-    .s16-cell img,
-    .s16-cell video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 15  —  Grid-7: 4 equal image cells
-    ══════════════════════════════════════════════════════════ */
-    .screen15,
-    .screen26,
-    .screen27 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s15-cell {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      height: 33.33vw;   /* 504 / 1512 */
-    }
-    .s15-cell img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 14  —  Grid-6: 3 videos + 1 image
-    ══════════════════════════════════════════════════════════ */
-    .screen14 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s14-cell {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      height: 44.51vw;   /* 673 / 1512 */
-    }
-    .s14-cell video,
-    .s14-cell img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 13  —  AI Campaign Production service page
-    ══════════════════════════════════════════════════════════ */
-    .screen13 {
-      position: relative;
-      width: 100%;
-      height: 51.24vw;   /* 700 / 1366 */
-      overflow: hidden;
-      background: #fff;
-    }
-    .s13-blob-main {
-      position: absolute;
-      left:   15.96vw;   /* 218 / 1366 */
-      top:     0.88vw;   /* 12  / 1366 */
-      width:  27.38vw;   /* 374 / 1366 */
-      height: 32.72vw;   /* 447 / 1366 */
-      z-index: 2;
-    }
-    .s13-blob-ai {
-      position: absolute;
-      left:    8.79vw;   /* 120 / 1366 */
-      top:     9.66vw;   /* 132 / 1366 */
-      width:   8.93vw;   /* 122 / 1366 */
-      height: 15.08vw;   /* 206 / 1366 */
-      z-index: 2;
-    }
-    .s13-blob-main img,
-    .s13-blob-ai img { width: 100%; height: 100%; display: block; }
-    /* Bottom group offset differs from S4 */
-    .s13-bottom { top: 29.36vw; }  /* 401 / 1366 */
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 12  —  Grid-5: 4 equal image cells (TBC visuals)
-    ══════════════════════════════════════════════════════════ */
-    .screen12 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s12-cell {
-      flex: 1;
-      height: 33.33vw;   /* 504 / 1512 */
-      position: relative;
-      overflow: hidden;
-    }
-    .s12-cell img {
-      position: absolute;
-      max-width: none;
-      pointer-events: none;
-    }
-    .s12-img1 { top: -16.91%; left: 0;      width: 100%;    height: 133.82%; }
-    .s12-img2 { top: -16.20%; left: 0;      width: 100%;    height: 132.41%; }
-    .s12-img3 { top: -20.90%; left: -1.86%; width: 103.99%; height: 138.43%; }
-    .s12-img4 { top: -17.46%; left: -0.81%; width: 100.82%; height: 134.92%; }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 10  —  Case study 2 (same layout as Screen 5)
-    ══════════════════════════════════════════════════════════ */
-    .screen10 {
-      position: relative;
-      width: 100%;
-      height: 24.93vw;   /* 340 / 1366 */
-      overflow: hidden;
-      background: #fff;
-    }
-    /* Left text col — no underline (unlike s5-link) */
-    .s10-left {
-      width: 297px;
-      flex-shrink: 0;
-      font-family: 'Macan Mono', monospace;
-      font-size: clamp(12px, 1.245vw, 17px);
-      line-height: normal;
-      color: #000;
-    }
-    .s10-left p { margin: 0; }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 9  —  AI Exploration service page (same layout as S4)
-    ══════════════════════════════════════════════════════════ */
-    .screen9 {
-      position: relative;
-      width: 100%;
-      height: 51.24vw;   /* 700 / 1366 */
-      overflow: hidden;
-      background: #fff;
-    }
-    .s9-blob {
-      position: absolute;
-      left:   13.84vw;   /* 189 / 1366 */
-      top:     0.88vw;   /* 12  / 1366 */
-      width:  39.60vw;   /* 541 / 1366 */
-      height: 30.96vw;   /* 423 / 1366 */
-      z-index: 2;
-    }
-    .s9-blob img { width: 100%; height: 100%; display: block; }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 8  —  Grid-3: Video (754) | Img (376) | Img (376)
-    ══════════════════════════════════════════════════════════ */
-    .screen8 {
-      display: flex;
-      gap: 2px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 2px;
-    }
-    .s8-cell {
-      position: relative;
-      overflow: hidden;
-      height: 33.33vw;
-      flex-shrink: 0;
-    }
-    .s8-cell-lg { flex: 754; }
-    .s8-cell-sm { flex: 376; }
-    .s8-video-wrap {
-      position: absolute;
-      inset: 0;
-    }
-    .s8-video-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .s8-cell img {
-      position: absolute;
-      max-width: none;
-      pointer-events: none;
-    }
-    .s8-img1 { top: 0;      left: -15.69%; width: 137.23%; height: 102.38%; }
-    .s8-img2 { top: -4.76%; left: -4.81%;  width: 109.62%; height: 109.52%; }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 6  —  Grid 2-col: Image + Video  (756 × 960 each)
-    ══════════════════════════════════════════════════════════ */
-    .screen6 {
-      width: 100%;
-      display: flex;
-      overflow: hidden;
-    }
-    .s6-cell {
-      width: 50%;
-      aspect-ratio: 756 / 960;
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    /* Image bleed from Figma: top -0.01%, left -1.06%, w 102.25%, h 107.84% */
-    .s6-image-wrap {
-      position: absolute;
-      top:    -0.01%;
-      left:   -1.06%;
-      width:  102.25%;
-      height: 107.84%;
-    }
-    .s6-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    /* Video cell */
-    .s6-video-wrap {
-      position: absolute;
-      inset: 0;
-    }
-    .s6-video-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       SCREEN 29  —  Footer: Let's talk
-    ══════════════════════════════════════════════════════════ */
-    .screen29 {
-      position: relative;
-      width: 100%;
-      height: 46.85vw;   /* 640 / 1366 */
-      overflow: hidden;
-      background: #fff;
-    }
-    .s29-h1 {
-      position: absolute;
-      left: 3.22vw;     /* (75 - 31bleed) / 1366 */
-      top: 3.59vw;      /* (80 - 31bleed) / 1366 */
-      width: 36.24vw;   /* 495 / 1366 (SVG natural width incl. bleed) */
-      z-index: 2;
-    }
-    .s29-h1 img { width: 100%; display: block; }
-    .s29-text {
-      position: absolute;
-      left: 51.07vw;    /* 697.6 / 1366 */
-      top: 6.22vw;      /* 85 / 1366 */
-      width: 320px;
+    /* Bullet list */
+    .s4-bullet-list { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    .s4-bullet { display: flex; gap: 8px; align-items: center; }
+    .s4-bullet-arrow { flex-shrink: 0; position: relative; width: 19px; }
+    .s4-bullet-arrow img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .s4-bullet-arrow.tall  { height: 92px; }
+    .s4-bullet-arrow.short { height: 40px; }
+    .s4-bullet-arrow.mid   { height: 80px; }
+    .s4-bullet-text {
       font-family: 'Macan Mono', monospace;
       font-size: 17px;
       line-height: normal;
       color: #000;
+      width: 319px;
     }
-    .s29-text p { margin: 0; }
-    .s29-tag-left {
-      position: absolute;
-      left: 3.07vw;     /* 42 / 1366 */
-      top: 2.49vw;      /* 34 / 1366 */
-    }
-    .s29-tags-right {
-      position: absolute;
-      right: 3.07vw;    /* 42 / 1366 */
-      top: 2.49vw;      /* 34 / 1366 */
+    .s4-body-text { font-family: 'Macan Mono', monospace; font-size: 17px; line-height: normal; color: #000; }
+
+    /* Bottom block: wide arrow + case study text */
+    .s4-bottom-block { position: absolute; left: 32px; bottom: 51px; width: 1447px; display: flex; gap: 24px; align-items: flex-start; }
+    .s4-bottom-arrow { width: 712px; height: 80px; position: relative; flex-shrink: 0; }
+    .s4-bottom-arrow img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .s4-case-group {
+      width: 712px;
       display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .s29-logo {
-      width: 29px;
-      height: 27px;
-      display: block;
+      gap: 24px;
+      align-items: flex-start;
+      font-family: 'Macan Mono', monospace;
+      font-size: 20px;
+      line-height: normal;
+      color: #000;
       flex-shrink: 0;
     }
+    .s4-case-col1 { width: 221px; flex-shrink: 0; }
+    .s4-case-col2 { flex: 1; min-width: 0; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 6  —  AI Exploration  (1512 × 1137)
+       Design ref: node 256:1302
+    ══════════════════════════════════════════════════════════ */
+
+    .screen.s6 { height: 1137px; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 7  —  Grid (TBC Bank)  (1512 × 1179)
+       Design ref: node 256:1363  — reuses s5-grid/row/cell CSS
+    ══════════════════════════════════════════════════════════ */
+    .screen.s7 { height: 1179px; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 14  —  Footer: Let's talk  (1512 × 640)
+       Design ref: node 256:1878
+    ══════════════════════════════════════════════════════════ */
+    .screen.s14 { height: 640px; }
+    /* Blob: 495×531 SVG (bleed-included) → position at bleed-adjusted coords */
+    .s14-blob { position: absolute; left: 36px; top: 53px; width: 495px; height: 531px; }
+    .s14-blob img { width: 100%; height: 100%; display: block; }
+    .s14-tags-right {
+      position: absolute; right: 32px; top: 32px;
+      display: flex; gap: 2px; align-items: center;
+      font-family: 'Macan Mono', monospace; font-size: 14px; line-height: normal;
+    }
+    .s14-logo { width: 34px; height: 32px; flex-shrink: 0; }
+    .s14-logo img { width: 100%; height: 100%; display: block; }
+    .s14-text {
+      position: absolute; left: 768px; top: 120px; width: 467px;
+      font-family: 'Macan Mono', monospace; font-size: 20px;
+      line-height: normal; color: #000;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 13  —  Grid (Lookbook)  (1512 × 2934)
+       Design ref: node 256:1807  — reuses s5-grid/row/cell CSS
+    ══════════════════════════════════════════════════════════ */
+    .screen.s13 { height: 2934px; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 12  —  AI E-com Lookbook  (1512 × 839)
+       Design ref: node 256:1728
+    ══════════════════════════════════════════════════════════ */
+    .screen.s12 { height: 839px; }
+    /* Blob: 636×358 SVG (bleed-included) → position at bleed-adjusted coords */
+    .s12-blob { position: absolute; left: 200px; top: 68px; width: 636px; height: 358px; }
+    .s12-blob img { width: 100%; height: 100%; display: block; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 11  —  Grid (Editorial)  (1512 × 3244)
+       Design ref: node 256:1642  — reuses s5-grid/row/cell CSS
+    ══════════════════════════════════════════════════════════ */
+    .screen.s11 { height: 3244px; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 10  —  AI Editorial / Drop Launch Pack  (1512 × 839)
+       Design ref: node 256:1564
+    ══════════════════════════════════════════════════════════ */
+    .screen.s10 { height: 839px; }
+    /* Blob: 313×497 SVG (bleed-included) → position at bleed-adjusted coords */
+    .s10-blob { position: absolute; left: 296px; top: 26px; width: 313px; height: 497px; }
+    .s10-blob img { width: 100%; height: 100%; display: block; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 8  —  AI Campaign Production  (1512 × 831)
+       Design ref: node 256:1430
+    ══════════════════════════════════════════════════════════ */
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 9  —  Grid (Campaign)  (1512 × 2647)
+       Design ref: node 256:1505  — reuses s5-grid/row/cell CSS
+    ══════════════════════════════════════════════════════════ */
+    .screen.s9 { height: 2647px; }
+
+    .screen.s8 { height: 831px; }
+    /* Blob: AI (122px) + Campaign (374px) — top:40 (vs s4 top:64) */
+    .s8-blob { position: absolute; left: 277px; top: 40px; width: 408px; height: 383px; }
+    .s8-blob-inner { position: absolute; inset: -8.36% -7.84%; display: flex; align-items: stretch; }
+    .s8-blob-inner img { height: 100%; display: block; width: 0; }
+    .s8-blob-inner .s8-ai       { flex: 122; }
+    .s8-blob-inner .s8-campaign { flex: 374; }
+
+    /* Blob: SVG already includes bleed → position at bleed-adjusted coords */
+    .s6-blob { position: absolute; left: 236px; top: 23px; width: 541px; height: 423px; }
+    .s6-blob img { width: 100%; height: 100%; display: block; }
+
+    /* ══════════════════════════════════════════════════════════
+       SCREEN 5  —  Grid (Manychat)  (1512 × 1972)
+       Design ref: node 256:1297
+    ══════════════════════════════════════════════════════════ */
+
+    .screen.s5 { height: 1972px; }
+    .s5-grid { display: flex; flex-direction: column; gap: 2px; width: 100%; }
+    .s5-row  { display: flex; gap: 2px; width: 100%; overflow: hidden; flex-shrink: 0; }
+    .s5-cell { position: relative; overflow: hidden; flex-shrink: 0; }
+    .s5-cell img,
+    .s5-cell video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
   </style>
 </head>
 <body>
 
-  <!-- ══ HERO ══════════════════════════════════════════════ -->
-  <section class="hero">
+  <!-- ══ SCREEN 1 — Hero ═══════════════════════════════════ -->
+  <section class="screen">
 
-    <!-- Giant rotated "after hours" headline -->
-    <div class="hero-title-wrap">
-      <span class="hero-title-text">after hours</span>
+    <div class="s1-right">
+      <img src="s1-right.svg" alt="Photo Video Ai" />
     </div>
 
-    <!-- "After Hours content production studio" SVG -->
-    <div class="hero-studio">
-      <img src="s1-h2-1.svg" alt="After Hours content production studio" />
-    </div>
-
-    <!-- "Photo Video AI" SVG -->
-    <div class="hero-services">
-      <img src="s1-text.svg" alt="Photo Video AI" />
-    </div>
-
-    <!-- Arrow -->
-    <div class="hero-arrow">
-      <img src="s1-arrow.svg" alt="" />
-    </div>
-
-    <!-- Bottom captions -->
-    <p class="hero-caption hero-caption-desc">
-      An independent content production studio with a multidisciplinary approach
-    </p>
-    <p class="hero-caption hero-caption-cats">
-      fashion &gt; beauty &gt; lifestyle &gt; culture &gt; artists &gt; tech &gt;&gt;&gt;
-    </p>
-
-  </section>
-
-  <!-- ══ SCREEN 2 ══════════════════════════════════════════ -->
-  <section class="screen2">
-
-    <!-- Photo — bottom-right, z-index 1 (behind text) -->
-    <div class="s2-photo">
-      <img src="s2-photo.jpg" alt="After Hours — jewel teeth campaign" />
-    </div>
-
-    <!-- "Concept-driven & curated AI production" SVG with bleed -->
-    <div class="s2-concept">
-      <div class="s2-concept-inner">
-        <img src="s2-concept.svg" alt="Concept-driven &amp; curated AI production" />
+    <div class="s1-left">
+      <div class="s1-logo">
+        <img src="s1-logo.svg" alt="After Hours" />
+      </div>
+      <div class="s1-top-bottom">
+        <div class="s1-h2">
+          <img src="s1-h2.svg" alt="After Hours content production studio" />
+        </div>
+        <div class="s1-para">
+          <p class="s1-para-left">An independent content production studio with a multidisciplinary approach</p>
+          <p class="s1-para-right">fashion &gt; beauty &gt; lifestyle &gt; culture &gt; artists &gt; tech &gt;&gt;&gt;</p>
+        </div>
       </div>
     </div>
 
-    <!-- Tag left — "AfterHours content production studio" -->
-    <div class="s2-tag s2-tag-left">
-      AfterHours content production studio
-    </div>
+  </section>
 
-    <!-- Tags right — logo + :—) + "all images here are generated" -->
+  <!-- ══ SCREEN 2 — Concept ════════════════════════════════ -->
+  <section class="screen">
+
+    <!-- Tag — top left -->
+    <div class="s2-tag-left tag">AfterHours content production studio</div>
+
+    <!-- Tags — top right -->
     <div class="s2-tags-right">
       <img class="s2-logo" src="s2-logo.svg" alt="AHW" />
-      <div class="s2-tag s2-tag-smiley">:—)</div>
-      <div class="s2-tag">all images here are generated</div>
+      <div class="tag">:—)</div>
+      <div class="tag">all images here are generated</div>
+    </div>
+
+    <!-- "Concept-driven & curated AI production" blob -->
+    <div class="s2-h1">
+      <img src="s2-h1.svg" alt="Concept-driven &amp; curated AI production" />
+    </div>
+
+    <!-- Teeth photo — bottom right -->
+    <div class="s2-photo">
+      <img src="s2-photo.jpg" alt="" />
     </div>
 
     <!-- Body text -->
-    <p class="s2-desc">
-      We work at the intersection of art direction and generative technology — using innovative tools to shape ideas, build visual systems, and create campaigns for brands
-    </p>
+    <p class="s2-body">We work at the intersection of art direction and generative technology — using innovative tools to shape ideas, build visual systems, and create campaigns for brands</p>
 
   </section>
 
-  <!-- ══ SCREEN 3 ══════════════════════════════════════════ -->
-  <section class="screen3">
+  <!-- ══ SCREEN 3 — How We Work ════════════════════════════ -->
+  <section class="screen s3">
 
-    <!-- Tags left: "AfterHours..." + "Concept-driven..." -->
-    <div class="s3-tags-left">
-      <div class="s2-tag">AfterHours content production studio</div>
-      <div class="s2-tag">Concept-driven &amp; curated AI production</div>
+    <!-- Tags — top left -->
+    <div class="s3-tags">
+      <div class="tag">AfterHours content production studio</div>
+      <div class="tag">Concept-driven &amp; curated AI production</div>
     </div>
 
-    <!-- Display-Group ticker: 4 individual word SVGs, fill 100vw at height 12.33vw -->
-    <div class="s3-display">
-      <img src="s3-concept.svg"       alt="Concept" />
-      <img src="s3-visual-system.svg" alt="Visual System" />
-      <img src="s3-production.svg"    alt="Production" />
-      <img src="s3-scale.svg"         alt="Scale" />
-    </div>
-
-    <!-- Tags centre: "how we work" + "our method" -->
-    <div class="s3-tags-centre">
-      <div class="s2-tag">how we work</div>
-      <div class="s2-tag">our method</div>
-    </div>
-
-    <!-- Paragraph-Group: 4 columns -->
-    <div class="s3-para-group">
-      <p class="s3-para-col">Define the idea, strategy, narrative, and visual hypothesis</p>
-      <p class="s3-para-col">Build the visual DNA: light, texture, material, form, composition, angle</p>
-      <p class="s3-para-col">Run controlled generation. Test tools and identify stable combinations</p>
-      <p class="s3-para-col">Build an asset library ready to scale. Create an autonomous visual system</p>
-    </div>
-
-    <!-- H1-Display: "Project Formats" pink blob with bleed -->
-    <div class="s3-h1">
-      <div class="s3-h1-inner">
-        <img src="s3-project-formats.svg" alt="Project Formats" />
+    <!-- Display-Group ticker: Concept / Visual System / Production / Scale -->
+    <div class="s3-ticker">
+      <div class="s3-ticker-inner">
+        <img class="s3-blob-concept"       src="s3-concept.svg"       alt="Concept" />
+        <img class="s3-blob-visual-system" src="s3-visual-system.svg" alt="Visual System" />
+        <img class="s3-blob-production"    src="s3-production.svg"    alt="Production" />
+        <img class="s3-blob-scale"         src="s3-scale.svg"         alt="Scale" />
       </div>
     </div>
 
-    <!-- "Explore the format that fits your scope" -->
-    <p class="s3-explore">Explore the format that fits your scope</p>
+    <!-- Center tags -->
+    <div class="s3-center-tags">
+      <div class="tag">how we work</div>
+      <div class="tag">our method</div>
+    </div>
 
-    <!-- Arrow — wide horizontal, bottom centre -->
-    <div class="s3-arrow-outer">
-      <div class="s3-arrow-inner">
+    <!-- Centre-block: paragraphs + Project Formats blob + Explore text -->
+    <div class="s3-centre-block">
+      <div class="s3-para-group">
+        <p class="s3-para-col">Define the idea, strategy, narrative, and visual hypothesis</p>
+        <p class="s3-para-col">Build the visual DNA: light, texture, material, form, composition, angle</p>
+        <p class="s3-para-col">Run controlled generation. Test tools and identify stable combinations</p>
+        <p class="s3-para-col">Build an asset library ready to scale. Create an autonomous visual system</p>
+      </div>
+      <div class="s3-pf-wrap">
+        <div class="s3-pf-inner">
+          <img src="s3-project-formats.svg" alt="Project Formats" />
+        </div>
+      </div>
+      <p class="s3-explore">Explore the format that fits your scope</p>
+    </div>
+
+    <!-- Arrow — bottom center -->
+    <div class="s3-arrow-wrap">
+      <div class="s3-arrow-rot">
         <img src="s3-arrow.svg" alt="" />
       </div>
     </div>
 
   </section>
 
-  <!-- ══ SCREEN 4 ══════════════════════════════════════════ -->
-  <section class="screen4">
+  <!-- ══ SCREEN 4 — AI Visual System ═══════════════════════ -->
+  <section class="screen s4">
 
     <!-- Tags — top left -->
     <div class="s4-tags">
-      <div class="s2-tag">Full pack</div>
-      <div class="s2-tag">AI Visual System</div>
+      <div class="tag">Full pack</div>
+      <div class="tag">AI Visual System</div>
+    </div>
+
+    <!-- AI + Visual System blob -->
+    <div class="s4-blob">
+      <div class="s4-blob-inner">
+        <img class="s4-ai"  src="s4-blob-ai.svg"     alt="AI" />
+        <img class="s4-vis" src="s4-blob-visual.svg"  alt="Visual System" />
+      </div>
     </div>
 
     <!-- Text group — top right -->
     <div class="s4-text-group">
-      <p class="s4-text-p1">We build your brand's visual language through AI</p>
-      <p class="s4-text-p2">We deep down in your brand, research the context, and your team's tools and build ready to use visual system</p>
+      <p class="s4-text-col1">We build your brand's visual language through AI</p>
+      <p class="s4-text-col2">We deep down in your brand, research the context, and your team's tools and build ready to use visual system</p>
     </div>
 
-    <!-- "Visual System" large blob -->
-    <div class="s4-h1-main">
-      <img src="s4-visual-system.svg" alt="Visual System" />
-    </div>
-
-    <!-- "AI" blob -->
-    <div class="s4-h1-ai">
-      <img src="s4-ai.svg" alt="AI" />
-    </div>
-
-    <!-- Bottom row: Deliverables / Timeline / Price -->
+    <!-- Bottom group: deliverables / timeline / price -->
     <div class="s4-bottom-group">
-      <div class="s4-bottom-col s4-deliverables">
-        <div class="s2-tag">Deliverables</div>
-        <div class="s4-deliverables-body">
-          <div class="s4-icons">
-            <img src="s4-icons.svg" alt="" />
+
+      <div class="s4-deliverables">
+        <div class="tag">Deliverables</div>
+        <div class="s4-bullet-list">
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow tall"><img src="s4-arrow-tall.svg" alt="" /></div>
+            <p class="s4-bullet-text">Visual library — imagery, textures, brand visual language across chosen media</p>
           </div>
-          <div class="s4-deliverables-text">
-            <p>Visual library — imagery, textures, brand visual language across chosen media</p>
-            <p>&nbsp;</p>
-            <p>AI-generated assets for selected media formats</p>
-            <p>&nbsp;</p>
-            <p>System and workflow guide</p>
-            <p>&nbsp;</p>
-            <p>AI pipeline: prompts, tools, step-by-step process</p>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">AI-generated assets for selected media formats</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">System and workflow guide</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">AI pipeline: prompts, tools, step-by-step process</p>
           </div>
         </div>
       </div>
-      <div class="s4-bottom-col s4-timeline">
-        <div class="s2-tag">Timeline</div>
-        <p>4–6 weeks</p>
+
+      <div class="s4-timeline">
+        <div class="tag">Timeline</div>
+        <p class="s4-body-text">4–6 weeks</p>
       </div>
-      <div class="s4-bottom-col s4-price">
-        <div class="s2-tag">Price</div>
-        <div>
+
+      <div class="s4-price">
+        <div class="tag">Price</div>
+        <div class="s4-body-text">
           <p>from €8000</p>
           <p>AI generation<br>tokens includes</p>
         </div>
       </div>
+
     </div>
 
-  </section>
-
-  <!-- ══ SCREEN 5 ══════════════════════════════════════════ -->
-  <section class="screen5">
-
-    <!-- Text block — right side, two columns -->
-    <div class="s5-text-block">
-      <a class="s5-link">
-        <p>AI Visual System for Manychat</p>
-        <p>manychat.com</p>
-      </a>
-      <p class="s5-desc">Created an AI-powered visual system for Manychat, a platform that helps businesses automate conversations across messaging channels. The project focused on generating consistent editorial-style photography for blog articles, marketing campaigns, and event content through a scalable prompt framework.</p>
-    </div>
-
-    <!-- Arrow — left, vertically centered -->
-    <div class="s5-arrow">
-      <img src="s5-arrow.svg" alt="" />
-    </div>
-
-  </section>
-
-  <!-- ══ SCREEN 6 — Grid: Image + Video ═══════════════════ -->
-  <section class="screen6">
-
-    <!-- Left: Image -->
-    <div class="s6-cell">
-      <div class="s6-image-wrap">
-        <img src="s6-image.png" alt="" />
+    <!-- Bottom block: wide arrow + case study -->
+    <div class="s4-bottom-block">
+      <div class="s4-bottom-arrow">
+        <img src="s4-bottom-arrow.svg" alt="" />
       </div>
-    </div>
-
-    <!-- Right: Video -->
-    <div class="s6-cell">
-      <div class="s6-video-wrap">
-        <video src="s6-video.mp4" autoplay muted loop playsinline></video>
+      <div class="s4-case-group">
+        <div class="s4-case-col1">
+          <p>AI Visual System for Manychat</p>
+          <p>manychat.com</p>
+        </div>
+        <p class="s4-case-col2">Created an AI-powered visual system for Manychat, a platform that helps businesses automate conversations across messaging channels. The project focused on generating consistent editorial-style photography for blog articles, marketing campaigns, and event content through a scalable prompt framework.</p>
       </div>
     </div>
 
   </section>
 
-  <!-- ══ SCREEN 7 — Grid-2: 3-col images ═════════════════ -->
-  <section class="screen7">
-    <!-- Image-1: rooftop couple (narrow) -->
-    <div class="s7-cell s7-cell-sm">
-      <img class="s7-img1" src="s7-img1.png" alt="" />
-    </div>
-    <!-- Image-2: man with sunglasses (narrow, cropped center) -->
-    <div class="s7-cell s7-cell-sm">
-      <img class="s7-img2" src="s7-img2.png" alt="" />
-    </div>
-    <!-- Image-3: woman with purple tie (wide) -->
-    <div class="s7-cell s7-cell-lg">
-      <img class="s7-img3" src="s7-img3.png" alt="" />
-    </div>
-  </section>
+  <!-- ══ SCREEN 5 — Grid (Manychat) ════════════════════════ -->
+  <section class="screen s5">
+    <div class="s5-grid">
 
-  <!-- ══ SCREEN 8 — Grid-3: Video + 2 images ════════════ -->
-  <section class="screen8">
-    <!-- Video (wide) -->
-    <div class="s8-cell s8-cell-lg">
-      <div class="s8-video-wrap">
-        <video src="s8-video.mp4" autoplay muted loop playsinline></video>
+      <!-- Row 1: image + video — 960px -->
+      <div class="s5-row" style="height:960px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s5-img1.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s5-v1.mov"></video>
+        </div>
       </div>
-    </div>
-    <!-- Image-1: man with coffee -->
-    <div class="s8-cell s8-cell-sm">
-      <img class="s8-img1" src="s8-img1.jpg" alt="" />
-    </div>
-    <!-- Image-2: group (Kodak Portra) -->
-    <div class="s8-cell s8-cell-sm">
-      <img class="s8-img2" src="s8-img2.png" alt="" />
+
+      <!-- Row 2: 3 images — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s5-img2.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s5-img3.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="width:754px">
+          <img src="s5-img4.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 3: video + 2 images — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s5-v2.mov"></video>
+        </div>
+        <div class="s5-cell" style="width:376px">
+          <img src="s5-img5.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="width:376px">
+          <img src="s5-img6.jpg" alt="" />
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ══ SCREEN 9 — AI Exploration (Quick pack) ══════════ -->
-  <section class="screen9">
+  <!-- ══ SCREEN 6 — AI Exploration ════════════════════════ -->
+  <section class="screen s6">
 
     <!-- Tags — top left -->
     <div class="s4-tags">
-      <div class="s2-tag">Quick pack</div>
-      <div class="s2-tag">AI Visual Research</div>
-      <div class="s2-tag">AI System Prototype</div>
+      <div class="tag">Quick pack</div>
+      <div class="tag">AI Visual Research</div>
+      <div class="tag">AI System Prototype</div>
+    </div>
+
+    <!-- AI exploration blob -->
+    <div class="s6-blob">
+      <img src="s6-blob.svg" alt="AI exploration" />
     </div>
 
     <!-- Text group — top right -->
     <div class="s4-text-group">
-      <p class="s4-text-p1">A fast test before committing to a system</p>
-      <p class="s4-text-p2">For those who want to test an idea, find a visual language, or see what's possible before making a bigger decision. We explore your hypothesis and return with a short concept and visual assets</p>
+      <p class="s4-text-col1">A fast test before committing to a system</p>
+      <p class="s4-text-col2">For those who want to test an idea, find a visual language, or see what's possible before making a bigger decision. We explore your hypothesis and return with a short concept and visual assets</p>
     </div>
 
-    <!-- "AI exploration" blob -->
-    <div class="s9-blob">
-      <img src="s9-ai-exploration.svg" alt="AI exploration" />
-    </div>
-
-    <!-- Bottom row: Deliverables / Timeline / Price -->
+    <!-- Bottom group: deliverables / timeline / price -->
     <div class="s4-bottom-group">
-      <div class="s4-bottom-col s4-deliverables">
-        <div class="s2-tag">Deliverables</div>
-        <div class="s4-deliverables-body">
-          <div class="s4-icons">
-            <img src="s4-icons.svg" alt="" />
+
+      <div class="s4-deliverables">
+        <div class="tag">Deliverables</div>
+        <div class="s4-bullet-list">
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow tall"><img src="s4-arrow-tall.svg" alt="" /></div>
+            <p class="s4-bullet-text">1 campaign<br>or product concept</p>
           </div>
-          <div class="s4-deliverables-text">
-            <p>1 campaign<br>or product concept</p>
-            <p>&nbsp;</p>
-            <p>Creative direction, mood / direction board (Figma)</p>
-            <p>&nbsp;</p>
-            <p>6–10 key visuals</p>
-            <p>&nbsp;</p>
-            <p>Base AI DNA — ready to grow into a full system</p>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">Creative direction, mood / direction board (Figma)</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">6–10 key visuals</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">Base AI DNA — ready to grow into a full system</p>
           </div>
         </div>
       </div>
-      <div class="s4-bottom-col s4-timeline">
-        <div class="s2-tag">Timeline</div>
-        <p>48–72 hours</p>
+
+      <div class="s4-timeline">
+        <div class="tag">Timeline</div>
+        <p class="s4-body-text">48–72 hours</p>
       </div>
-      <div class="s4-bottom-col s4-price">
-        <div class="s2-tag">Price</div>
-        <div>
+
+      <div class="s4-price">
+        <div class="tag">Price</div>
+        <div class="s4-body-text">
           <p>from €1500</p>
           <p>AI generation<br>tokens includes</p>
         </div>
       </div>
+
     </div>
 
-  </section>
-
-  <!-- ══ SCREEN 10 — Case study: TBC Bank ════════════════ -->
-  <section class="screen10">
-
-    <!-- Text block — right, vertically centered -->
-    <div class="s5-text-block">
-      <div class="s10-left">
-        <p>AI Visual Research<br>for TBC Bank UZ</p>
-        <p>tbcbank.uz</p>
+    <!-- Bottom block: wide arrow + case study -->
+    <div class="s4-bottom-block">
+      <div class="s4-bottom-arrow">
+        <img src="s6-bottom-arrow.svg" alt="" />
       </div>
-      <p class="s5-desc">Developed an AI-driven visual system and concept exploration for a banking AI assistant, combining generative photography, illustration, and video aesthetics. The system enabled scalable production of campaign visuals while maintaining a consistent and culturally relevant visual identity.</p>
+      <div class="s4-case-group">
+        <div class="s4-case-col1">
+          <p>AI Visual Research<br>for TBC Bank UZ</p>
+          <p>tbcbank.uz</p>
+        </div>
+        <p class="s4-case-col2">Developed an AI-driven visual system and concept exploration for a banking AI assistant, combining generative photography, illustration, and video aesthetics. The system enabled scalable production of campaign visuals while maintaining a consistent and culturally relevant visual identity.</p>
+      </div>
     </div>
 
-    <!-- Arrow — left, vertically centered -->
-    <div class="s5-arrow">
-      <img src="s5-arrow.svg" alt="" />
+  </section>
+
+  <!-- ══ SCREEN 7 — Grid (TBC Bank) ═══════════════════════ -->
+  <section class="screen s7">
+    <div class="s5-grid">
+
+      <!-- Row 1: 4 videos — 673px -->
+      <div class="s5-row" style="height:673px">
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s11-v1.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s11-v2.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s11-v3.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s11-v4.mp4"></video>
+        </div>
+      </div>
+
+      <!-- Row 2: 4 images — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s12-img1.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s12-img2.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s12-img3.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s12-img4.png" alt="" />
+        </div>
+      </div>
+
     </div>
-
   </section>
 
-  <!-- ══ SCREEN 11 — Grid-4: 4 video cells ═══════════════ -->
-  <section class="screen11">
-    <div class="s11-cell"><video src="s11-v4.mp4" autoplay muted loop playsinline></video></div>
-    <div class="s11-cell"><video src="s11-v2.mp4" autoplay muted loop playsinline></video></div>
-    <div class="s11-cell"><video src="s11-v3.mp4" autoplay muted loop playsinline></video></div>
-    <div class="s11-cell"><video src="s11-v1.mp4" autoplay muted loop playsinline></video></div>
-  </section>
-
-  <!-- ══ SCREEN 12 — Grid-5: 4 TBC images ════════════════ -->
-  <section class="screen12">
-    <div class="s12-cell"><img class="s12-img1" src="s12-img1.png" alt="" /></div>
-    <div class="s12-cell"><img class="s12-img2" src="s12-img2.png" alt="" /></div>
-    <div class="s12-cell"><img class="s12-img3" src="s12-img3.png" alt="" /></div>
-    <div class="s12-cell"><img class="s12-img4" src="s12-img4.png" alt="" /></div>
-  </section>
-
-  <!-- ══ SCREEN 13 — AI Campaign Production ══════════════ -->
-  <section class="screen13">
+  <!-- ══ SCREEN 8 — AI Campaign Production ════════════════ -->
+  <section class="screen s8">
 
     <!-- Tags — top left -->
     <div class="s4-tags">
-      <div class="s2-tag">Full pack</div>
-      <div class="s2-tag">AI Campaign production</div>
+      <div class="tag">Full pack</div>
+      <div class="tag">AI Campaign production</div>
     </div>
 
-    <!-- Text group — top right (fixed widths) -->
+    <!-- Blob: AI + Campaign Production -->
+    <div class="s8-blob">
+      <div class="s8-blob-inner">
+        <img class="s8-ai"       src="s8-blob-ai.svg"       alt="AI" />
+        <img class="s8-campaign" src="s8-blob-campaign.svg" alt="Campaign production" />
+      </div>
+    </div>
+
+    <!-- Text group — top right -->
     <div class="s4-text-group">
-      <p class="s4-text-p1">Brand campaigns without a huge crew</p>
-      <p class="s4-text-p2">Concept, visual language and a full asset set – tailored for your formats and distribution channels</p>
+      <p class="s4-text-col1">Brand campaigns without a huge crew</p>
+      <p class="s4-text-col2">Concept, visual language and a full asset set – tailored for your formats and distribution channels</p>
     </div>
 
-    <!-- "AI Campaign production" blob -->
-    <div class="s13-blob-main">
-      <img src="s13-AI-Campaign-production.svg" alt="AI Campaign production" />
-    </div>
+    <!-- Bottom group: deliverables / timeline / price -->
+    <div class="s4-bottom-group">
 
-    <!-- "AI" small blob -->
-    <div class="s13-blob-ai">
-      <img src="s13-AI-2.svg" alt="AI" />
-    </div>
-
-    <!-- Bottom row -->
-    <div class="s4-bottom-group s13-bottom">
-      <div class="s4-bottom-col s4-deliverables">
-        <div class="s2-tag">Deliverables</div>
-        <div class="s4-deliverables-body">
-          <div class="s4-icons">
-            <img src="s4-icons.svg" alt="" />
+      <div class="s4-deliverables">
+        <div class="tag">Deliverables</div>
+        <div class="s4-bullet-list">
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow tall"><img src="s4-arrow-tall.svg" alt="" /></div>
+            <p class="s4-bullet-text">Visual narrative, creative direction, mood board / direction board across chosen media</p>
           </div>
-          <div class="s4-deliverables-text">
-            <p>Visual narrative, creative direction, mood board / direction board across chosen media</p>
-            <p>&nbsp;</p>
-            <p>A selection of assets to choose from:</p>
-            <p>&nbsp;</p>
-            <p>Static visuals — 20 images<br>Short videos — 5–10 clips<br>Long-form video — 3–5 minutes or 2 × 1:30</p>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">A selection of assets to choose from:</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow mid"><img src="s8-arrow-stretch.svg" alt="" /></div>
+            <p class="s4-bullet-text">Static visuals — 20 images<br>Short videos — 5–10 clips<br>Long-form video — 3–5 minutes or 2 × 1:30</p>
           </div>
         </div>
       </div>
-      <div class="s4-bottom-col s4-timeline">
-        <div class="s2-tag">Timeline</div>
-        <p>2–6 weeks</p>
+
+      <div class="s4-timeline">
+        <div class="tag">Timeline</div>
+        <p class="s4-body-text">2–6 weeks</p>
       </div>
-      <div class="s4-bottom-col s4-price">
-        <div class="s2-tag">Price</div>
-        <div>
+
+      <div class="s4-price">
+        <div class="tag">Price</div>
+        <div class="s4-body-text">
           <p>from €5000</p>
           <p>AI generation<br>tokens includes</p>
         </div>
       </div>
+
     </div>
 
   </section>
 
-  <!-- ══ SCREEN 14 — Grid-6: 3 videos + 1 image ══════════ -->
-  <section class="screen14">
-    <div class="s14-cell"><video src="s14-v1.mov" autoplay muted loop playsinline></video></div>
-    <div class="s14-cell"><video src="s14-v2.mov" autoplay muted loop playsinline></video></div>
-    <div class="s14-cell"><video src="s14-v3.mov" autoplay muted loop playsinline></video></div>
-    <div class="s14-cell"><img src="s14-img.png" alt="" /></div>
+  <!-- ══ SCREEN 9 — Grid (Campaign) ═══════════════════════ -->
+  <section class="screen s9">
+    <div class="s5-grid">
+
+      <!-- Row 1: 4 videos — 673px -->
+      <div class="s5-row" style="height:673px">
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s11-v1.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s11-v2.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s11-v3.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s11-v4.mp4"></video>
+        </div>
+      </div>
+
+      <!-- Row 2: 4 images — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s12-img1.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s12-img2.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s12-img3.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s12-img4.png" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 3: 3 images + 1 video — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s15-img1.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s15-img2.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s15-img3.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s16-v1.mp4"></video>
+        </div>
+      </div>
+
+      <!-- Row 4: 2 images — 960px -->
+      <div class="s5-row" style="height:960px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s17-img1.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s17-img2.jpg" alt="" />
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- ══ SCREEN 15 — Grid-7: 4 images ════════════════════ -->
-  <section class="screen15">
-    <div class="s15-cell"><img src="s15-img1.jpg" alt="" /></div>
-    <div class="s15-cell"><img src="s15-img2.jpg" alt="" /></div>
-    <div class="s15-cell"><img src="s15-img3.jpg" alt="" /></div>
-    <div class="s15-cell"><img src="s15-img4.jpg" alt="" /></div>
-  </section>
+  <!-- ══ SCREEN 10 — AI Editorial / Drop Launch Pack ══════ -->
+  <section class="screen s10">
 
-  <!-- ══ SCREEN 16 — Grid-8: 3 images + 1 video ══════════ -->
-  <section class="screen16">
-    <div class="s16-cell"><img src="s16-img1.png" alt="" /></div>
-    <div class="s16-cell"><img src="s16-img2.jpg" alt="" /></div>
-    <div class="s16-cell"><img src="s16-img3.jpg" alt="" /></div>
-    <div class="s16-cell"><video src="s16-v1.mp4" autoplay muted loop playsinline></video></div>
-  </section>
-
-  <!-- ══ SCREEN 17 — Grid-9: 2 images ═════════════════════ -->
-  <section class="screen17">
-    <div class="s17-cell"><img src="s17-img1.jpg" alt="" /></div>
-    <div class="s17-cell"><img src="s17-img2.jpg" alt="" /></div>
-  </section>
-
-  <!-- ══ SCREEN 18 — AI Editorial / Drop Launch Pack ═══════ -->
-  <section class="screen18">
-
+    <!-- Tags — top left -->
     <div class="s4-tags">
-      <div class="s2-tag">Quick pack</div>
-      <div class="s2-tag">AI Editorial</div>
-      <div class="s2-tag">Drop Launch Pack</div>
+      <div class="tag">Quick pack</div>
+      <div class="tag">AI Editorial</div>
+      <div class="tag">Drop Launch Pack</div>
     </div>
 
+    <!-- Blob: Drop / AI / Launch Pack (salmon) -->
+    <div class="s10-blob">
+      <img src="s10-blob.svg" alt="Drop AI Launch Pack" />
+    </div>
+
+    <!-- Text group — top right -->
     <div class="s4-text-group">
-      <p class="s4-text-p1">For visual stories and object poetry</p>
-      <p class="s4-text-p2">Concept, visual language and a ready-to-publish asset pack. For those who want to tell a story that looks like a full production</p>
+      <p class="s4-text-col1">For visual stories and object poetry</p>
+      <p class="s4-text-col2">Concept, visual language and a ready-to-publish asset pack. For those who want to tell a story that looks like a full production</p>
     </div>
 
-    <div class="s18-blob">
-      <img src="s18-blob.svg" alt="Drop AI Launch Pack" />
-    </div>
+    <!-- Bottom group: deliverables / timeline / price -->
+    <div class="s4-bottom-group">
 
-    <div class="s4-bottom-group s18-bottom">
-      <div class="s4-bottom-col s4-deliverables">
-        <div class="s2-tag">Deliverables</div>
-        <div class="s4-deliverables-body">
-          <div class="s4-icons"><img src="s18-icons.svg" alt="" /></div>
-          <div class="s4-deliverables-text">
-            <p>Visual narrative, creative direction, mood board / direction board</p>
-            <p>&nbsp;</p>
-            <p>1 hero visual + 6–12 variations</p>
-            <p>&nbsp;</p>
-            <p>2–4 short loops (5–10 sec)</p>
-            <p>&nbsp;</p>
-            <p>6–10 stories frames (vertical)</p>
+      <div class="s4-deliverables">
+        <div class="tag">Deliverables</div>
+        <div class="s4-bullet-list">
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow tall"><img src="s4-arrow-tall.svg" alt="" /></div>
+            <p class="s4-bullet-text">Visual narrative, creative direction, mood board / direction board</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">1 hero visual + 6–12 variations</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">2–4 short loops (5–10 sec)</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">6–10 stories frames (vertical)</p>
           </div>
         </div>
       </div>
-      <div class="s4-bottom-col s4-timeline">
-        <div class="s2-tag">Timeline</div>
-        <p>1 week</p>
+
+      <div class="s4-timeline">
+        <div class="tag">Timeline</div>
+        <p class="s4-body-text">1 week</p>
       </div>
-      <div class="s4-bottom-col s4-price">
-        <div class="s2-tag">Price</div>
-        <div>
+
+      <div class="s4-price">
+        <div class="tag">Price</div>
+        <div class="s4-body-text">
           <p>from €3000</p>
           <p>AI generation<br>tokens includes</p>
         </div>
       </div>
+
     </div>
 
   </section>
 
-  <!-- ══ SCREEN 19 — Grid-10: video + image + image + video ══ -->
-  <section class="screen19">
-    <div class="s19-cell"><video src="s19-v1.mov" autoplay muted loop playsinline></video></div>
-    <div class="s19-cell"><img src="s19-img2.png" alt="" /></div>
-    <div class="s19-cell"><img src="s19-img3.jpg" alt="" /></div>
-    <div class="s19-cell"><video src="s19-v4.mp4" autoplay muted loop playsinline></video></div>
+  <!-- ══ SCREEN 11 — Grid (Editorial) ══════════════════════ -->
+  <section class="screen s11">
+    <div class="s5-grid">
+
+      <!-- Row 1: v / img / img / v — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s19-v1.mov"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s19-img2.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s19-img3.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s19-v4.mp4"></video>
+        </div>
+      </div>
+
+      <!-- Row 2: img / img / v / img — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s20-img1.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s20-img2.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s20-v3.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s20-img4.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 3: img / v — 960px -->
+      <div class="s5-row" style="height:960px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s17-img1.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s17-v1.mp4"></video>
+        </div>
+      </div>
+
+      <!-- Row 4: v / v / img / v — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s22-v1.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s22-v2.mp4"></video>
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s22-img3.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <video autoplay muted loop playsinline src="s22-v4.mp4"></video>
+        </div>
+      </div>
+
+      <!-- Row 5: full-width image — 764px -->
+      <div class="s5-row" style="height:764px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s23-img.jpg" alt="" />
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- ══ SCREEN 20 — Grid-11: image + image + video + image ══ -->
-  <section class="screen20">
-    <div class="s20-cell"><img src="s20-img1.jpg" alt="" /></div>
-    <div class="s20-cell"><img src="s20-img2.jpg" alt="" /></div>
-    <div class="s20-cell"><video src="s20-v3.mp4" autoplay muted loop playsinline></video></div>
-    <div class="s20-cell"><img src="s20-img4.jpg" alt="" /></div>
-  </section>
+  <!-- ══ SCREEN 12 — AI E-com Lookbook ════════════════════ -->
+  <section class="screen s12">
 
-  <!-- ══ SCREEN 21 — Grid-12: image + video ════════════════ -->
-  <section class="screen21">
-    <div class="s17-cell"><img src="s17-img1.png" alt="" /></div>
-    <div class="s17-cell"><video src="s17-v1.mp4" autoplay muted loop playsinline></video></div>
-  </section>
-
-  <!-- ══ SCREEN 22 — Grid-13: video + video + image + video ══ -->
-  <section class="screen22">
-    <div class="s22-cell"><video src="s22-v1.mp4" autoplay muted loop playsinline></video></div>
-    <div class="s22-cell"><video src="s22-v2.mp4" autoplay muted loop playsinline></video></div>
-    <div class="s22-cell"><img src="s22-img3.png" alt="" /></div>
-    <div class="s22-cell"><video src="s22-v4.mp4" autoplay muted loop playsinline></video></div>
-  </section>
-
-  <!-- ══ SCREEN 23 — Grid-14: full-width image ═════════════ -->
-  <section class="screen23">
-    <img src="s23-img.jpg" alt="" />
-  </section>
-
-  <!-- ══ SCREEN 24 — AI E-com Lookbook ════════════════════ -->
-  <section class="screen24">
-
+    <!-- Tags — top left -->
     <div class="s4-tags">
-      <div class="s2-tag">Quick pack</div>
-      <div class="s2-tag">AI e-com lookbook</div>
+      <div class="tag">Quick pack</div>
+      <div class="tag">AI e-com lookbook</div>
     </div>
 
+    <!-- Blob: AI E-com lookbook (pink) -->
+    <div class="s12-blob">
+      <img src="s12-blob.svg" alt="AI E-com lookbook" />
+    </div>
+
+    <!-- Text group — top right -->
     <div class="s4-text-group">
-      <div class="s4-text-p1"><p>Lookbook Images</p><p>&amp; E-commerce Crops</p></div>
-      <p class="s4-text-p2">We create custom AI models, style them in your looks, and craft the lighting, character and faces. Garments are carefully adapted to achieve a natural fit for lookbook and e-commerce imagery</p>
+      <div class="s4-text-col1">
+        <p>Lookbook Images</p>
+        <p>&amp; E-commerce Crops</p>
+      </div>
+      <p class="s4-text-col2">We create custom AI models, style them in your looks, and craft the lighting, character and faces. Garments are carefully adapted to achieve a natural fit for lookbook and e-commerce imagery</p>
     </div>
 
-    <div class="s24-blob">
-      <img src="s24-blob.svg" alt="AI E-com lookbook" />
-    </div>
+    <!-- Bottom group: deliverables / timeline / price -->
+    <div class="s4-bottom-group">
 
-    <div class="s4-bottom-group s24-bottom">
-      <div class="s4-bottom-col s4-deliverables">
-        <div class="s2-tag">Deliverables</div>
-        <div class="s4-deliverables-body">
-          <div class="s4-icons"><img src="s24-icons.svg" alt="" /></div>
-          <div class="s4-deliverables-text">
-            <p>Creative direction<br>mood board</p>
-            <p>&nbsp;</p>
-            <p>1–3 unique AI models<br>(forever asset)</p>
-            <p>&nbsp;</p>
-            <p>10–20 lookbook frames</p>
-            <p>&nbsp;</p>
-            <p>3–5 e-com crops</p>
-            <p>&nbsp;</p>
-            <p>Guide for self-generating new looks</p>
+      <div class="s4-deliverables">
+        <div class="tag">Deliverables</div>
+        <div class="s4-bullet-list">
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">Creative direction mood board</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">1–3 unique AI models<br>(forever asset)</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">10–20 lookbook frames</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">3–5 e-com crops</p>
+          </div>
+          <div class="s4-bullet">
+            <div class="s4-bullet-arrow short"><img src="s4-arrow-short.svg" alt="" /></div>
+            <p class="s4-bullet-text">Guide for self-generating new looks</p>
           </div>
         </div>
       </div>
-      <div class="s4-bottom-col s4-timeline">
-        <div class="s2-tag">Timeline</div>
-        <p>2–3 weeks</p>
+
+      <div class="s4-timeline">
+        <div class="tag">Timeline</div>
+        <p class="s4-body-text">2-3 week</p>
       </div>
-      <div class="s4-bottom-col s4-price">
-        <div class="s2-tag">Price</div>
-        <div>
+
+      <div class="s4-price">
+        <div class="tag">Price</div>
+        <div class="s4-body-text">
           <p>from €6000</p>
           <p>AI generation<br>tokens includes</p>
         </div>
       </div>
+
     </div>
 
   </section>
 
-  <!-- ══ SCREEN 25 — Grid-15: 2 images ════════════════════ -->
-  <section class="screen25">
-    <div class="s17-cell"><img src="s25-img1.png" alt="" /></div>
-    <div class="s17-cell"><img src="s25-img2.jpg" alt="" /></div>
+  <!-- ══ SCREEN 13 — Grid (Lookbook) ═══════════════════════ -->
+  <section class="screen s13">
+    <div class="s5-grid">
+
+      <!-- Row 1: 2 images — 960px -->
+      <div class="s5-row" style="height:960px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s25-img1.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s25-img2.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 2: 4 images — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s26-img1.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s26-img2.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s26-img3.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s26-img4.jpg" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 3: 4 images — 504px -->
+      <div class="s5-row" style="height:504px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s27-img1.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s27-img2.jpg" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s27-img3.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s27-img4.png" alt="" />
+        </div>
+      </div>
+
+      <!-- Row 4: 2 images — 960px -->
+      <div class="s5-row" style="height:960px">
+        <div class="s5-cell" style="flex:1">
+          <img src="s28-img1.png" alt="" />
+        </div>
+        <div class="s5-cell" style="flex:1">
+          <img src="s28-img2.png" alt="" />
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- ══ SCREEN 26 — Grid-16: 4 images ════════════════════ -->
-  <section class="screen26">
-    <div class="s15-cell"><img src="s26-img1.jpg" alt="" /></div>
-    <div class="s15-cell"><img src="s26-img2.jpg" alt="" /></div>
-    <div class="s15-cell"><img src="s26-img3.jpg" alt="" /></div>
-    <div class="s15-cell"><img src="s26-img4.jpg" alt="" /></div>
-  </section>
-
-  <!-- ══ SCREEN 27 — Grid-17: 4 images ════════════════════ -->
-  <section class="screen27">
-    <div class="s15-cell"><img src="s27-img1.jpg" alt="" /></div>
-    <div class="s15-cell"><img src="s27-img2.jpg" alt="" /></div>
-    <div class="s15-cell"><img src="s27-img3.png" alt="" /></div>
-    <div class="s15-cell"><img src="s27-img4.png" alt="" /></div>
-  </section>
-
-  <!-- ══ SCREEN 28 — Grid-18: 2 images ════════════════════ -->
-  <section class="screen28">
-    <div class="s17-cell"><img src="s28-img1.png" alt="" /></div>
-    <div class="s17-cell"><img src="s28-img2.png" alt="" /></div>
-  </section>
-
-  <!-- ══ SCREEN 29 — Footer: Let's talk ═══════════════════ -->
-  <section class="screen29">
+  <!-- ══ SCREEN 14 — Footer: Let's talk ════════════════════ -->
+  <section class="screen s14">
 
     <!-- Tag — top left -->
-    <div class="s29-tag-left">
-      <div class="s2-tag">AfterHours content production studio</div>
+    <div class="s4-tags">
+      <div class="tag">AfterHours content production studio</div>
     </div>
 
-    <!-- Tags — top right -->
-    <div class="s29-tags-right">
-      <img class="s29-logo" src="s2-logo.svg" alt="AHW" />
-      <div class="s2-tag s2-tag-smiley">:—)</div>
-      <a class="s2-tag" href="mailto:hello@afterhoursworkshop.com" style="text-decoration:none;color:inherit;">hello@afterhoursworkshop.com</a>
+    <!-- Logo + tags — top right -->
+    <div class="s14-tags-right">
+      <div class="s14-logo"><img src="s2-logo.svg" alt="AHW" /></div>
+      <div class="tag" style="padding:8px 16px">:—)</div>
+      <a class="tag" style="padding:8px 16px; text-decoration:none; color:#000" href="mailto:hello@afterhoursworkshop.com">hello@afterhoursworkshop.com</a>
     </div>
 
-    <!-- "Let's talk" SVG blob -->
-    <div class="s29-h1">
-      <img src="s29-union.svg" alt="Let's talk" />
+    <!-- Blob: Let's talk (blue) -->
+    <div class="s14-blob">
+      <img src="s14-blob.svg" alt="Let's talk" />
     </div>
 
     <!-- Body text -->
-    <div class="s29-text">
+    <div class="s14-text">
       <p>Each pack can be tailored to your project. Happy to share more about our approach and discuss details.</p>
       <p>&nbsp;</p>
       <p>Let's make something!</p>
