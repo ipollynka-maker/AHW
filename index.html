@@ -20,7 +20,8 @@
 
     /* ── Reset ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { background: #fff; min-width: 1512px; }
+    html { min-width: 1512px; zoom: calc(100vw / 1512px); }
+    body { background: #fff; min-width: 1512px; }
 
     /* ── Shared: screen container ──────────────────────────── */
     .screen {
